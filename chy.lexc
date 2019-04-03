@@ -1,8 +1,8 @@
 !This is meant to be basic for now. Will add the full lexicon when ready. 
 Multichar_Symbols
-%<p1_sg%>
-%<p2_sg%>
-%<p3_sg%>
+%<px1sg%>
+%<px2sg%>
+%<px3sg%>
 %<p1ex_pl%>
 %<p1in_pl%>
 %<p1_pl%>
@@ -15,26 +15,46 @@ Multichar_Symbols
 %{a%}
 %{e%}
 %<p1%>
-LEXICON ROOT
 
+! Possessive - Stem - Plural
+
+LEXICON Root
+
+POSS ; 
+
+LEXICON K 
+
+# ;
 
 LEXICON POSS
 
-LEXICON POS
-%<p1_sg%>:n%{a%} NOUNS ;
-%<p2_sg%>:n%{e%} NOUNS ;
-%<p3_sg%>:n%{a%} OBVIATIVE ;
-%<p1ex_pl%>
-%<p1in_pl%>
+%<px1sg%>:n%{a%}%> NOUNS ;
+%<px2sg%>:n%{e%}%> NOUNS ;
+!%<px3sg%>:n%{a%}%> OBVIATIVE ;
 
+NOUNS ; 
 
+LEXICON PL-OTSE
+
+%<pl%>:%>ȯtse K ;
+
+LEXICON PL-HO
+
+%<pl%>:%>ho K ; 
 
 LEXICON NA
 
+%<n%>%<aa%>: PL-HO ; 
+%<n%>%<aa%>%<sg%>: K ; 
 
 LEXICON NI
 
+%<n%>%<nn%>: PL-OTSE ; 
+%<n%>%<nn%>%<sg%>: K  ; 
 
-LEXICON PLURAL
+LEXICON NOUNS 
 
-LEXICON 
+e'ha:e'ha NA ; ! "son"
+hohkȯxe:hohkȯxeh NI ; ! "axe"
+
+

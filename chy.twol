@@ -1,0 +1,19 @@
+Alphabet 
+
+a b c d e f g h i j k l m n o p q r s t w x y z ȯ 
+
+%{a%}:a %{a%}:0
+%{e%}:e %{e%}:0
+
+%>:0 
+
+; 
+
+Sets 
+
+Vow = a e i o u ȯ ;
+
+Rules
+
+"Deletion of {a} in possessive"
+%{a%}:0 <=> _ %>: Vow ; 
