@@ -1,0 +1,40 @@
+!This is meant to be basic for now. Will add the full lexicon when ready. 
+Multichar_Symbols
+%<p1_sg%>
+%<p2_sg%>
+%<p3_sg%>
+%<p1ex_pl%>
+%<p1in_pl%>
+%<p1_pl%>
+%<p3_pl%>
+
+%{n%}
+%{á%}
+%{é%}
+%{ó%}
+%{a%}
+%{e%}
+%<p1%>
+LEXICON ROOT
+
+
+LEXICON POSS
+
+LEXICON POS
+%<p1_sg%>:n%{a%} NOUNS ;
+%<p2_sg%>:n%{e%} NOUNS ;
+%<p3_sg%>:n%{a%} OBVIATIVE ;
+%<p1ex_pl%>
+%<p1in_pl%>
+
+
+
+LEXICON NA
+
+
+LEXICON NI
+
+
+LEXICON PLURAL
+
+LEXICON 
