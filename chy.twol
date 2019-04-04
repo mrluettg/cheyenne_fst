@@ -1,10 +1,10 @@
 Alphabet 
 
-a b c d e f g h i j k l m n o p q r s t w x y z ȯ 
+a e h k l ' m n o p s š t v x ȯ ȧ á é ó 
 
 %{a%}:a %{a%}:0
 %{e%}:e %{e%}:0
-
+%{t%}:t %{t%}:ts
 %>:0 
 
 ; 
@@ -15,5 +15,5 @@ Vow = a e i o u ȯ ;
 
 Rules
 
-"Deletion of {a} in possessive"
-%{a%}:0 <=> _ %>: Vow ; 
+"t becomes ts before e"
+%{t%}:ts <=> _ e ; 

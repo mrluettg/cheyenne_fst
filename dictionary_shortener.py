@@ -81,7 +81,7 @@ def eao_end_multichar(print_string):
 		if line[-1] == "é": 
 			line = line[:-1]
 			line += "%{é%}"
-		if line[-1] == "é": 
+		if line[-1] == "ó": 
 			line = line[:-1]
 			line += "%{ó%}"
 		return_str += line + "\n"
@@ -115,8 +115,6 @@ for line in file:
 		if trim_word(line_lst[i]) == "plural" and print_string != "": 
 			print_string += "\nOBVIATATIVE " + trim_word(line_lst[i + 1])
 	if print_string: 
-		#FIGURE OUT WHAT TO DO WITH PARENTHESIS.
-		#FIGURE OUT WHAT TO DO WITH NON-ASCII CHARS. 
 		print_string = print_string.strip(" ")
 		print_string = print_string.replace("(n)", "%{n%}")
 		if re.search("\(", print_string) and re.search("\)", print_string): 
@@ -124,6 +122,7 @@ for line in file:
 		print_string = print_string.replace("ā", "a")
 		print_string = print_string.replace("ē", "e")
 		print_string = print_string.replace("ō", "o")
+		print_string = print_string.replace("tse", "%{t%}e") #part of the phonetics. {te} never appears. 
 		if re.search("FINAL-V", print_string) or re.search("VERB-", print_string): 
 			print_string = eao_end_multichar(print_string)
 		print(print_string)

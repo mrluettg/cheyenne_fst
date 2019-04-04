@@ -14,6 +14,7 @@ Multichar_Symbols
 %{ó%}
 %{a%}
 %{e%}
+%{t%} !for tse
 %<p1%>
 
 ! Possessive - Stem - Plural
@@ -42,19 +43,39 @@ LEXICON PL-HO
 
 %<pl%>:%>ho K ; 
 
-LEXICON NA
 
+LEXICON NA
+%<n%>%<aa%>: PL-O ; 
 %<n%>%<aa%>: PL-HO ; 
+%<n%>%<aa%>: PL-NO ; 
+%<n%>%<aa%>: PL-O'O ; 
+%<n%>%<aa%>: PL-HNE ; 
+%<n%>%<aa%>: PL-NE ; 
 %<n%>%<aa%>%<sg%>: K ; 
 
 LEXICON NI
 
-%<n%>%<nn%>: PL-OTSE ; 
+%<n%>%<nn%>: PL-HOTSE ;
+%<n%>%<nn%>: PL-OTSE ;
+%<n%>%<nn%>: PL-NOTSE ;
+%<n%>%<nn%>: PL-ESTSE ;
+%<n%>%<nn%>: PL-NESTSE ;
 %<n%>%<nn%>%<sg%>: K  ; 
 
-LEXICON NOUNS 
+LEXICON NOUNS
+!ȯ ȧ á é ó š
 
-e'ha:e'ha NA ; ! "son"
-hohkȯxe:hohkȯxeh NI ; ! "axe"
+!NA
+e'hah:e'ha NA ; ! "son"
+hátseškeh:hátseške NA ; !"ant"
+mé'
+ma'ah%{t%}e:ma'ah%{t%}en:
+
+
+hohkȯxeh:hohkȯxe NI ; ! "axe"
+
+
+
+
 
 
