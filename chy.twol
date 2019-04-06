@@ -1,11 +1,13 @@
 Alphabet 
 
-a e h k l ' m n o p s š t v x ȯ ȧ á é ó 
+a b e h k l ' m n o p s š t v x ė ȯ ȧ á é ó 
 
 %{a%}:a %{a%}:0
 %{e%}:e %{e%}:0
 %{t%}:t %{t%}:ts
 %{N%}:0 %{N%}:n
+%{O%}:ȯ %{O%}:ó
+%{E%}:ė %{E%}:é
 
 %>:0 
 
@@ -13,9 +15,45 @@ a e h k l ' m n o p s š t v x ȯ ȧ á é ó
 
 Sets 
 
-Vow = a e i o u ȯ ;
+Vow = a e o ȧ ė ȯ á é ó ;
+
+Con = h k l ' m n p s š t v x ;
+
+HighVow = á é ó ; !this refers to tone. 
+
+
 
 Rules
 
 "t becomes ts before e"
-%{t%}:ts <=> _ e ; 
+%{t%}:ts <=> _ :e ; 
+
+"remove end consonant"
+Cx:0 <=> _ .#. ; 
+	_ Con: .#. ;
+	where Cx in ( h k l m n p s š v x ) ; 
+"t is exception to previous rule"
+t:tse <=> _ .#. ;
+
+"' is also exception to previous rule"
+':'e <=> _ .#. ;
+
+"neutralization of high tones at end of word"
+[á:a | é:e | ó:o ] <=>  _ .#. ;
+			_ Con: .#. ;
+			_ Con: Con: .#. ;
+			_ %> .#. ; 
+"Inanimate plural becomes voiced after a vowel,"
+[%{E%}:é | %{O%}:ó ] <=> HighVow %>: _ ;
+
+"final o becomes o'o after a vowel at the end of the word." !same thing happens with e
+[ o:o'o | ó:o'o | e:e'e | é:e'e] <=> Vow: _ .#. ;
+	Vow: _ Con: .#. ;  
+	Vow: %>: _ .#. ; 
+
+!"if the final high tone vowel is neutralized and there is a single high tone followed by a neutral tone, that neutral tone will become high."
+
+"> is bad"
+>:0 <=> _ ;
+
+

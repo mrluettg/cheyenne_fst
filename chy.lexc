@@ -38,7 +38,7 @@ LEXICON POSS
 
 %<px1sg%>:n%{a%}%> NOUNS ;
 %<px2sg%>:n%{e%}%> NOUNS ;
-!%<px3sg%>:n%{a%}%> OBVIATIVE ;
+%<px3sg%>:n%{a%}%> OBVIATIVE ;
 
 LEXICON NA-PL-O
 
@@ -51,7 +51,7 @@ LEXICON NA-PL-E
 %<n%>%<an%>%<sg%>: K ;
 
 LEXICON NI-PL-OT
-%<n%>%<an%>%<pl%>:%>%{O%}stse K ;
+%<n%>%<an%>%<pl%>:%>%{O%}tse K ;
 %<n%>%<an%>%<sg%>: K ; 
 LEXICON NI-PL-ET
 %<n%>%<inan%>%<pl%>:%>%{E%}stse K ;
@@ -62,14 +62,14 @@ LEXICON NOUNS !ȯ ȧ ė á é ó š
 eʼha:eʼhah  NA-PL-O ; ! "son"
 hátseške:hátseškeh NA-PL-O ; !"ant" 
 méʼėševotse:méʼėševot NA-PL-O ; !"baby"
-móneške:méʼėševot NA-PL-O ; !"bean"
+móneše:móneškeh NA-PL-O ; !"bean"
 nákohé:nákohé NA-PL-O ; !"bear"
-hánoma:hánoma NA-PL-O ; !"bee"
+hánoma:hánomah NA-PL-O ; !"bee"
 póéso:póésón NA-PL-O ; !"cat"
-hexovo:hxovón NA-PL-O ; !"comb"
-tseeneéheoʼo:tseeneéheo%{N%} NA-PL-O ; !"
+hexovo:hexovón NA-PL-O ; !"comb"
+tseeneéheoʼo:tseeneéheon NA-PL-O ; 
 šéʼše:šéʼšé NA-PL-O ;
-meeʼe:mée%{N%} NA-PL-O ;
+meeʼe:méen NA-PL-O ;
 vóhkoehe:vóhkoeheh NA-PL-O ;
 
 hova:hováhn NA-PL-E ;
@@ -86,7 +86,7 @@ moʼkeha:moʼkehan NI-PL-OT ;
 hoestáto:hoestátón NI-PL-ET ;
 maʼkaeta:maʼkaeta NI-PL-ET ;
 hoʼesta:hoʼestán NI-PL-ET ;
-hóhkėhaʼe:hóhkėhaʼ NI-PL-ET ;
+hóhkėhaʼe:hóhkėha' NI-PL-ET ;
 
 
 
