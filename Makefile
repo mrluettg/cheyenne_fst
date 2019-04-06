@@ -1,7 +1,7 @@
 all: chy.gen.hfst chy.mor.hfst 
 
 chy.lexc.hfst: chy.lexc
-	hfst-lexc $< -o $@
+	hfst-lexc --Werror $< -o $@
 
 chy.twol.hfst: chy.twol
 	hfst-twolc $< -o $@
