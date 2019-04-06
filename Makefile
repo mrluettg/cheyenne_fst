@@ -1,4 +1,4 @@
-all: chy.gen.hfst chy.mor.hfst 
+all: chy.gen.hfst chy.mor.hfst chy.mor.hfstol
 
 chy.lexc.hfst: chy.lexc
 	hfst-lexc --Werror $< -o $@
@@ -12,5 +12,8 @@ chy.gen.hfst: chy.twol.hfst chy.lexc.hfst
 chy.mor.hfst: chy.gen.hfst
 	hfst-invert $< -o $@
 
+chy.mor.hfstol: chy.mor.hfst
+	hfst-fst2fst -w $< -o $@
+
 clean:
-	rm *.hfst
+	rm *.hfst *.hfstol

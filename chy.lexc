@@ -17,7 +17,7 @@ Multichar_Symbols
 %{E%} !for inanimate plural, diseappears before high tones in obviatative. 
 %{O%} !for inanimate plural, diseappears before high tones obviatative. 
 %{t%} !for tse
-%{N%} !for V1V2n reprsentented as V1V2'V2
+%{N%} !for V1V2n reprsentented as V1V2ʼV2
 %<p1%> !plural
 %<nao%> 
 %<nae%>
@@ -27,7 +27,7 @@ Multichar_Symbols
 
 LEXICON Root
 
-!POSS ;
+POSS ;
 NOUNS ;
 
 LEXICON K 
@@ -38,7 +38,7 @@ LEXICON POSS
 
 %<px1sg%>:n%{a%}%> NOUNS ;
 %<px2sg%>:n%{e%}%> NOUNS ;
-%<px3sg%>:n%{a%}%> OBVIATIVE ;
+!%<px3sg%>:n%{a%}%> OBVIATIVE ;
 
 LEXICON NA-PL-O
 
@@ -59,41 +59,41 @@ LEXICON NI-PL-ET
 
 LEXICON NOUNS !ȯ ȧ ė á é ó š
 
-e'ha:e'hah  NA-PL-O ; ! "son"
+eʼha:eʼhah  NA-PL-O ; ! "son"
 hátseške:hátseškeh NA-PL-O ; !"ant" 
-mé'ėševotse:mé'ėševot NA-PL-O ; !"baby"
-móneške:mé'ėševot NA-PL-O ; !"bean"
+méʼėševotse:méʼėševot NA-PL-O ; !"baby"
+móneške:méʼėševot NA-PL-O ; !"bean"
 nákohé:nákohé NA-PL-O ; !"bear"
 hánoma:hánoma NA-PL-O ; !"bee"
 póéso:póésón NA-PL-O ; !"cat"
 hexovo:hxovón NA-PL-O ; !"comb"
-tseeneéheo'o:tseeneéheo%{N%} NA-PL-O ; !"
-šé'še:šé'šé NA-PL-O ;
-mee'e:mée%{N%} NA-PL-O ;
+tseeneéheoʼo:tseeneéheo%{N%} NA-PL-O ; !"
+šéʼše:šéʼšé NA-PL-O ;
+meeʼe:mée%{N%} NA-PL-O ;
 vóhkoehe:vóhkoeheh NA-PL-O ;
 
 hova:hováhn NA-PL-E ;
 kokȯhéaxá:kokȯhéáxán NA-PL-E ;
 váótséva:váotseváhn NA-PL-E ;
 kosa:kosán NA-PL-E ;
-xao'o:xaón NA-PL-E ;
+xaoʼo:xaón NA-PL-E ;
 
-ma'ahtse:ma'ahtsen NI-PL-OT ;
+maʼahtse:maʼahtsen NI-PL-OT ;
 hohkȯxe:hohkȯxeh NI-PL-OT ;
-he'ko:he'kon NI-PL-OT ;
-mo'keha:mo'kehan NI-PL-OT ; 
+heʼko:heʼkon NI-PL-OT ;
+moʼkeha:moʼkehan NI-PL-OT ; 
 
-hoestáto;hoestátón NI-PL-ET ;
-ma'kaeta:ma'kaeta NI-PL-ET ;
-ho'esta:ho'están NI-PL-ET ;
-hóhkėha'e:hóhkėha' NI-PL-ET ;
+hoestáto:hoestátón NI-PL-ET ;
+maʼkaeta:maʼkaeta NI-PL-ET ;
+hoʼesta:hoʼestán NI-PL-ET ;
+hóhkėhaʼe:hóhkėhaʼ NI-PL-ET ;
 
 
 
 !e -> e _con, fricative
 !high-tone -> neutral: high_tone _ high_tone
 !high-tone -> neutral: _ #
-!V2n -> 'V2:  V1_ ; 
+!V2n -> ʼV2:  V1_ ; 
 !consonant -> 0: _ #
 
 
