@@ -15,43 +15,71 @@ a b e h k l ' m n o p s š t v x ė ȯ ȧ á é ó
 
 Sets 
 
-Vow = a e o ȧ ė ȯ á é ó ;
+Vow = a e o ȧ ė ȯ á é ó;
 
 Con = h k l ' m n p s š t v x ;
 
 HighVow = á é ó ; !this refers to tone. 
 
-
+VoicelessFric = h s š x ;
 
 Rules
 
 "t becomes ts before e"
-%{t%}:ts <=> _ :e ; 
+t:ts <=> _ :e ; 
 
 "remove end consonant"
 Cx:0 <=> _ .#. ; 
 	_ Con: .#. ;
-	where Cx in ( h k l m n p s š v x ) ; 
+	where Cx in ( h k l n p s š v x ) ; 
 "t is exception to previous rule"
 t:tse <=> _ .#. ;
 
-"' is also exception to previous rule"
-':'e <=> _ .#. ;
+"o and e become voiceless before e"
+[a:ȧ | e:ė | o:ȯ ] <=> _ ts ;
+		except
+			Vow: _ ;
+			
+"' and m are also exceptions to previous rule"
+[':'e | m:me ] <=> _ .#. ;
+
+
 
 "neutralization of high tones at end of word"
 [á:a | é:e | ó:o ] <=>  _ .#. ;
 			_ Con: .#. ;
 			_ Con: Con: .#. ;
 			_ %> .#. ; 
-"Inanimate plural becomes voiced after a vowel,"
-[%{E%}:é | %{O%}:ó ] <=> HighVow %>: _ ;
+			except Vow: _ .#. ;
+				Vow: _ Con: .#. ; 
+				Vow: %>: _ .#. ;
+
+"devoicing of neutral vowels before voiceless fricatives, but not in second to last syllable."
+[a:ȧ | e:ė | o:ȯ ] <=> _ VoicelessFric: ;
+			except 
+			Vow: _ ;
+			.#. h: _ ; 
+			_ VoicelessFric: Con:* (%>:) Vow: Con:* .#. ; 
+			_ Con: .#. ;
+			!Can't have three in a row. Middle stays as voiced.  
+			\h: Vow: VoicelessFric: VoicelessFric:* _ VoicelessFric: VoicelessFric:* (%>:) Vow: VoicelessFric:* ;
 
 "final o becomes o'o after a vowel at the end of the word." !same thing happens with e
 [ o:o'o | ó:o'o | e:e'e | é:e'e] <=> Vow: _ .#. ;
-	Vow: _ Con: .#. ;  
-	Vow: %>: _ .#. ; 
+	Vow: _ Con: .#. ; 
+	Vow: %>: _ .#. ;
+	
 
-!"if the final high tone vowel is neutralized and there is a single high tone followed by a neutral tone, that neutral tone will become high."
+"if the final high tone vowel is neutralized and there is a single high tone followed by a neutral tone, that neutral tone will become high."
+[a:á | e:é | o:ó ] <=> HighVow _ Con: [Con: | Vow: ]* HighVow: Con:* .#. ;
+"e -> 0 morpheme boundary and vowel. Goes with next rule"
+e:0 <=> _ %>: Vow: ;
+
+!"vowel gets high tone if e."
+
+"voicesless becomes high tone if an e %> comes before it in morphology"
+[ė:é | ȯ:ó] <=> e: %>: _ ;
+
 
 "> is bad"
 >:0 <=> _ ;

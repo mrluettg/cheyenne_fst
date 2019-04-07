@@ -1,71 +1,106 @@
 !This is meant to be basic for now. Will add the full lexicon when ready. 
 Multichar_Symbols
-%<px1sg%>
+%<px1sg%> 
 %<px2sg%>
 %<px3sg%>
-%<p1ex_pl%>
-%<p1in_pl%>
-%<p1_pl%>
-%<p3_pl%>
+%<px1plx%>
+%<px1pli%>
+%<px2pl%>
+%<px3pl%>
+%<px4> !someone's 
 
-%{n%}
+%{n%} !for possesives disappearing
+%{h%} !for possesives disappearing. 
 %{á%}
 %{é%}
 %{ó%}
 %{a%}
 
-%{E%} !for inanimate plural, diseappears before high tones in obviatative. 
-%{O%} !for inanimate plural, diseappears before high tones obviatative. 
-%{t%} !for tse
-%{N%} !for V1V2n reprsentented as V1V2ʼV2
+
 %<p1%> !plural
-%<nao%> 
-%<nae%>
-%<niot%>
-%<niet%>
+%<n%> ! noun
+%<aa%> ! animate
+%<nn%>  ! inanimate
+@U.Pref.ne@
+@U.Pref.na@
+@U.Pref.he@
+@U.Pref.ma@
+@D.Pref@
 ! Possessive - Stem - Plural
 
 LEXICON Root
 
-POSS ;
-NOUNS ;
+POSSPREF ;
+
 
 LEXICON K 
 
 # ;
 
-LEXICON POSS
 
-%<px1sg%>:n%{a%}%> NOUNS ;
-%<px2sg%>:n%{e%}%> NOUNS ;
-%<px3sg%>:n%{a%}%> OBVIATIVE ;
+LEXICON POSSPREF
+@U.Pref.ne@:@U.Pref.ne@%{n%}e%> Nouns ;
+@U.Pref.na@:@U.Pref.na@na%> Nouns ;
+@U.Pref.he@:@U.Pref.he@he%> Nouns ;
+@U.Pref.ma@:@U.Pref.ma@ma%> Nouns ;
+                            Nouns ; 
 
-LEXICON NA-PL-O
+LEXICON POSS-OT
 
-%<n%>%<an%>%<pl%>:%>o K ;
-%<n%>%<an%>%<sg%>: K ;
+@U.Pref.ne@%<px1sg%>:@U.Pref.ne@ PL-OT ;
+@U.Pref.ne@%<px1pl%>:@U.Pref.ne@%>nan PL-OT ;
+@U.Pref.he@%<px3sg%>:@U.Pref.he@ PL-OT ;
+@U.Pref.he@%<px3pl%>:@U.Pref.he@%>nan PL-OT ;
+@U.Pref.na@%<px2sg%>:@U.Pref.na@ PL-OT ;
+@U.Pref.na@%<px2pl%>:@U.Pref.na@%>nan PL-OT ;
+@D.Pref@:@D.Pref@                     PL-OT ;
+
+!LEXICON NA-PL-O
+!%>o K ;
+
+!%<n%>%<an%>%<sg%>: K ;
+!%<n%>%<an%>%<poss%>: POSS ;
+!%<n%>%<an%>%<pl%>: NAO-PLURAL ;
 
 LEXICON NA-PL-E
 
-%<n%>%<an%>%<pl%>:%>e K ;
+
+
 %<n%>%<an%>%<sg%>: K ;
+%<n%>%<an%>%<poss%>: POSS ;
+%<n%>%<an%>%<pl%>: NAE-PLURAL ;
+
 
 LEXICON NI-PL-OT
-%<n%>%<an%>%<pl%>:%>%{O%}tse K ;
-%<n%>%<an%>%<sg%>: K ; 
+%<n%>%<nn%>%<sg%>: K ; 
+%<n%>%<nn%>: POSS-OT ; 
+
+
+LEXICON PL-OT
+
+%<pl%>:%>ȯtse K ;
+
 LEXICON NI-PL-ET
-%<n%>%<inan%>%<pl%>:%>%{E%}stse K ;
 %<n%>%<inan%>%<sg%>: K ; 
+%<n%>%<inan%>%<poss%>: POSS ; 
+%<n%>%<inan%>%<pl%>: NIET-PLURAL;
 
-LEXICON NOUNS !ȯ ȧ ė á é ó š
+LEXICON NIET-PLURAL
+%<et%>:%>ėstse K ;
 
+
+!%<n%>%<nn%>%<pl%>:%>ėstse K ;
+!%<n%>%<nn%>%<sg%>: K ; 
+
+LEXICON Nouns !ȯ ȧ ė á é ó š
+!set from abstract form list. 
 eʼha:eʼhah  NA-PL-O ; ! "son"
 hátseške:hátseškeh NA-PL-O ; !"ant" 
-méʼėševotse:méʼėševot NA-PL-O ; !"baby"
+méʼeševotse:méʼeševot NA-PL-O ; !"baby"
 móneše:móneškeh NA-PL-O ; !"bean"
 nákohé:nákohé NA-PL-O ; !"bear"
 hánoma:hánomah NA-PL-O ; !"bee"
-póéso:póésón NA-PL-O ; !"cat"
+póéso:póesón NA-PL-O ; !"cat"
 hexovo:hexovón NA-PL-O ; !"comb"
 tseeneéheoʼo:tseeneéheon NA-PL-O ; 
 šéʼše:šéʼšé NA-PL-O ;
@@ -73,13 +108,13 @@ meeʼe:méen NA-PL-O ;
 vóhkoehe:vóhkoeheh NA-PL-O ;
 
 hova:hováhn NA-PL-E ;
-kokȯhéaxá:kokȯhéáxán NA-PL-E ;
+kokȯhéaxá:kokȯhéaxán NA-PL-E ;
 váótséva:váotseváhn NA-PL-E ;
 kosa:kosán NA-PL-E ;
 xaoʼo:xaón NA-PL-E ;
 
 maʼahtse:maʼahtsen NI-PL-OT ;
-hohkȯxe:hohkȯxeh NI-PL-OT ;
+hohkoxe:hohkoxeh NI-PL-OT ;
 heʼko:heʼkon NI-PL-OT ;
 moʼkeha:moʼkehan NI-PL-OT ; 
 
@@ -87,6 +122,14 @@ hoestáto:hoestátón NI-PL-ET ;
 maʼkaeta:maʼkaeta NI-PL-ET ;
 hoʼesta:hoʼestán NI-PL-ET ;
 hóhkėhaʼe:hóhkėha' NI-PL-ET ;
+
+!ȯ ȧ ė á é ó š
+!set from possessives. 
+mȧheo'o:maheón NA-PL-O ; !house
+sémo:sémon NI-PL-OT ; !boat
+maahe:maahe NI-PL-OT ; !arrow
+véhaname:véhanam NA-PL-O ; !chief
+
 
 
 
