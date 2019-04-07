@@ -7,7 +7,7 @@ Multichar_Symbols
 %<px1pli%>
 %<px2pl%>
 %<px3pl%>
-%<px4> !someone's 
+%<px4%> !someone's 
 
 %{n%} !for possesives disappearing
 %{h%} !for possesives disappearing. 
@@ -55,6 +55,12 @@ LEXICON POSS-OT
 @U.Pref.na@%<px2pl%>:@U.Pref.na@%>nan PL-OT ;
 @D.Pref@:@D.Pref@                     PL-OT ;
 
+
+LEXICON NI-PL-OT
+%<n%>%<nn%>%<sg%>: K ; 
+%<n%>%<nn%>: POSS-OT ; 
+
+
 !LEXICON NA-PL-O
 !%>o K ;
 
@@ -62,31 +68,24 @@ LEXICON POSS-OT
 !%<n%>%<an%>%<poss%>: POSS ;
 !%<n%>%<an%>%<pl%>: NAO-PLURAL ;
 
-LEXICON NA-PL-E
+!LEXICON NA-PL-E
+!%<n%>%<an%>%<sg%>: K ;
+!%<n%>%<an%>%<poss%>: POSS ;
+!%<n%>%<an%>%<pl%>: NAE-PLURAL ;
 
-
-
-%<n%>%<an%>%<sg%>: K ;
-%<n%>%<an%>%<poss%>: POSS ;
-%<n%>%<an%>%<pl%>: NAE-PLURAL ;
-
-
-LEXICON NI-PL-OT
-%<n%>%<nn%>%<sg%>: K ; 
-%<n%>%<nn%>: POSS-OT ; 
 
 
 LEXICON PL-OT
 
 %<pl%>:%>ȯtse K ;
 
-LEXICON NI-PL-ET
-%<n%>%<inan%>%<sg%>: K ; 
-%<n%>%<inan%>%<poss%>: POSS ; 
-%<n%>%<inan%>%<pl%>: NIET-PLURAL;
+!LEXICON NI-PL-ET
+!%<n%>%<inan%>%<sg%>: K ; 
+!%<n%>%<inan%>%<poss%>: POSS ; 
+!%<n%>%<inan%>%<pl%>: NIET-PLURAL;
 
-LEXICON NIET-PLURAL
-%<et%>:%>ėstse K ;
+!LEXICON NIET-PLURAL
+!%<et%>:%>ėstse K ;
 
 
 !%<n%>%<nn%>%<pl%>:%>ėstse K ;
@@ -94,41 +93,41 @@ LEXICON NIET-PLURAL
 
 LEXICON Nouns !ȯ ȧ ė á é ó š
 !set from abstract form list. 
-eʼha:eʼhah  NA-PL-O ; ! "son"
-hátseške:hátseškeh NA-PL-O ; !"ant" 
-méʼeševotse:méʼeševot NA-PL-O ; !"baby"
-móneše:móneškeh NA-PL-O ; !"bean"
-nákohé:nákohé NA-PL-O ; !"bear"
-hánoma:hánomah NA-PL-O ; !"bee"
-póéso:póesón NA-PL-O ; !"cat"
-hexovo:hexovón NA-PL-O ; !"comb"
-tseeneéheoʼo:tseeneéheon NA-PL-O ; 
-šéʼše:šéʼšé NA-PL-O ;
-meeʼe:méen NA-PL-O ;
-vóhkoehe:vóhkoeheh NA-PL-O ;
+!eʼha:eʼhah  NA-PL-O ; ! "son"
+!hátseške:hátseškeh NA-PL-O ; !"ant" 
+!méʼeševotse:méʼeševot NA-PL-O ; !"baby"
+!móneše:móneškeh NA-PL-O ; !"bean"
+!nákohé:nákohé NA-PL-O ; !"bear"
+!hánoma:hánomah NA-PL-O ; !"bee"
+!póéso:póesón NA-PL-O ; !"cat"
+!hexovo:hexovón NA-PL-O ; !"comb"
+!tseeneéheoʼo:tseeneéheon NA-PL-O ; 
+!šéʼše:šéʼšé NA-PL-O ;
+!meeʼe:méen NA-PL-O ;
+!vóhkoehe:vóhkoeheh NA-PL-O ;
 
-hova:hováhn NA-PL-E ;
-kokȯhéaxá:kokȯhéaxán NA-PL-E ;
-váótséva:váotseváhn NA-PL-E ;
-kosa:kosán NA-PL-E ;
-xaoʼo:xaón NA-PL-E ;
+!hova:hováhn NA-PL-E ;
+!kokȯhéaxá:kokȯhéaxán NA-PL-E ;
+!váótséva:váotseváhn NA-PL-E ;
+!kosa:kosán NA-PL-E ;
+!xaoʼo:xaón NA-PL-E ;
 
 maʼahtse:maʼahtsen NI-PL-OT ;
 hohkoxe:hohkoxeh NI-PL-OT ;
 heʼko:heʼkon NI-PL-OT ;
 moʼkeha:moʼkehan NI-PL-OT ; 
 
-hoestáto:hoestátón NI-PL-ET ;
-maʼkaeta:maʼkaeta NI-PL-ET ;
-hoʼesta:hoʼestán NI-PL-ET ;
-hóhkėhaʼe:hóhkėha' NI-PL-ET ;
+!hoestáto:hoestátón NI-PL-ET ;
+!maʼkaeta:maʼkaeta NI-PL-ET ;
+!hoʼesta:hoʼestán NI-PL-ET ;
+!hóhkėhaʼe:hóhkėha' NI-PL-ET ;
 
 !ȯ ȧ ė á é ó š
 !set from possessives. 
-mȧheo'o:maheón NA-PL-O ; !house
+!mȧheo'o:maheón NA-PL-O ; !house
 sémo:sémon NI-PL-OT ; !boat
-maahe:maahe NI-PL-OT ; !arrow
-véhaname:véhanam NA-PL-O ; !chief
+!maahe:maahe NI-PL-OT ; !arrow
+!véhaname:véhanam NA-PL-O ; !chief
 
 
 
