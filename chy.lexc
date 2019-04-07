@@ -17,7 +17,7 @@ Multichar_Symbols
 %{a%}
 
 
-%<p1%> !plural
+%<pl%> !plural
 %<n%> ! noun
 %<aa%> ! animate
 %<nn%>  ! inanimate
@@ -45,6 +45,11 @@ LEXICON POSSPREF
 @U.Pref.ma@:@U.Pref.ma@ma%> Nouns ;
                             Nouns ; 
 
+
+LEXICON NI-PL-OT
+%<n%>%<nn%>%<sg%>: K ; 
+%<n%>%<nn%>: POSS-OT ; 
+
 LEXICON POSS-OT
 
 @U.Pref.ne@%<px1sg%>:@U.Pref.ne@ PL-OT ;
@@ -56,17 +61,35 @@ LEXICON POSS-OT
 @D.Pref@:@D.Pref@                     PL-OT ;
 
 
-LEXICON NI-PL-OT
-%<n%>%<nn%>%<sg%>: K ; 
-%<n%>%<nn%>: POSS-OT ; 
+LEXICON NA-PL-O
+%<n%>%<aa%>%<sg%>: K ; 
+%<n%>%<aa>: POSS-O ; 
 
+LEXICON POSS-OT
 
-!LEXICON NA-PL-O
-!%>o K ;
+@U.Pref.ne@%<px1sg%>:@U.Pref.ne@ PL-O ;
+@U.Pref.ne@%<px1pl%>:@U.Pref.ne@%>nan PL-O ;
+@U.Pref.he@%<px3sg%>:@U.Pref.he@ PL-O ;
+@U.Pref.he@%<px3pl%>:@U.Pref.he@%>nan PL-O ;
+@U.Pref.na@%<px2sg%>:@U.Pref.na@ PL-OT ;
+@U.Pref.na@%<px2pl%>:@U.Pref.na@%>nan PL-O ;
+@D.Pref@:@D.Pref@                     PL-O ;
 
 !%<n%>%<an%>%<sg%>: K ;
 !%<n%>%<an%>%<poss%>: POSS ;
 !%<n%>%<an%>%<pl%>: NAO-PLURAL ;
+
+LEXICON POSS-O
+
+@U.Pref.ne@%<px1sg%>:@U.Pref.ne@ PL-OT ;
+@U.Pref.ne@%<px1pl%>:@U.Pref.ne@%>nan PL-OT ;
+@U.Pref.he@%<px3sg%>:@U.Pref.he@ PL-OT ;
+@U.Pref.he@%<px3pl%>:@U.Pref.he@%>nan PL-OT ;
+@U.Pref.na@%<px2sg%>:@U.Pref.na@ PL-OT ;
+@U.Pref.na@%<px2pl%>:@U.Pref.na@%>nan PL-OT ;
+@D.Pref@:@D.Pref@                     PL-OT ;
+
+
 
 !LEXICON NA-PL-E
 !%<n%>%<an%>%<sg%>: K ;
