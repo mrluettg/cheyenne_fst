@@ -21,11 +21,11 @@ Multichar_Symbols
 %<n%> ! noun
 %<aa%> ! animate
 %<nn%>  ! inanimate
-@U.Pref.ne@
-@U.Pref.na@
-@U.Pref.he@
-@U.Pref.ma@
-@D.Pref@
+@U.Poss.ne@
+@U.Poss.na@
+@U.Poss.he@
+@U.Poss.ma@
+@U.Poss.ø@
 ! Possessive - Stem - Plural
 
 LEXICON Root
@@ -39,56 +39,45 @@ LEXICON K
 
 
 LEXICON POSSPREF
-@U.Pref.ne@:@U.Pref.ne@%{n%}e%> Nouns ;
-@U.Pref.na@:@U.Pref.na@na%> Nouns ;
-@U.Pref.he@:@U.Pref.he@he%> Nouns ;
-@U.Pref.ma@:@U.Pref.ma@ma%> Nouns ;
-                            Nouns ; 
+@U.Poss.ne@:@U.Poss.ne@%{n%}e%> Nouns ;
+@U.Poss.na@:@U.Poss.na@na%> Nouns ;
+@U.Poss.he@:@U.Poss.he@he%> Nouns ;
+@U.Poss.ma@:@U.Poss.ma@ma%> Nouns ;
+@U.Poss.ø@:@U.Poss.ø@                            Nouns ; 
 
 
 LEXICON NI-PL-OT
-%<n%>%<nn%>%<sg%>: K ; 
 %<n%>%<nn%>: POSS-OT ; 
 
 LEXICON POSS-OT
 
-@U.Pref.ne@%<px1sg%>:@U.Pref.ne@ PL-OT ;
-@U.Pref.ne@%<px1pl%>:@U.Pref.ne@%>nan PL-OT ;
-@U.Pref.he@%<px3sg%>:@U.Pref.he@ PL-OT ;
-@U.Pref.he@%<px3pl%>:@U.Pref.he@%>nan PL-OT ;
-@U.Pref.na@%<px2sg%>:@U.Pref.na@ PL-OT ;
-@U.Pref.na@%<px2pl%>:@U.Pref.na@%>nan PL-OT ;
-@D.Pref@:@D.Pref@                     PL-OT ;
+@U.Poss.ne@%<px1sg%>:@U.Poss.ne@       PL-OT ;
+@U.Poss.na@%<px2sg%>:@U.Poss.na@       PL-OT ;
+@U.Poss.he@%<px3sg%>:@U.Poss.he@       PL-OT ;
+@U.Poss.ma@%<px4%>:@U.Poss.ma@       PL-OT ;
+@U.Poss.ne@%<px1pl%>:@U.Poss.ne@%>nán  PL-OT ;
+@U.Poss.na@%<px2pl%>:@U.Poss.na@%>nán  PL-OT ;
+@U.Poss.he@%<px3pl%>:@U.Poss.he@%>nán  PL-OT ;
+@U.Poss.ø@:@U.Poss.ø@                      PL-OT ;
 
 
-LEXICON NA-PL-O
-%<n%>%<aa%>%<sg%>: K ; 
-%<n%>%<aa>: POSS-O ; 
-
-LEXICON POSS-OT
-
-@U.Pref.ne@%<px1sg%>:@U.Pref.ne@ PL-O ;
-@U.Pref.ne@%<px1pl%>:@U.Pref.ne@%>nan PL-O ;
-@U.Pref.he@%<px3sg%>:@U.Pref.he@ PL-O ;
-@U.Pref.he@%<px3pl%>:@U.Pref.he@%>nan PL-O ;
-@U.Pref.na@%<px2sg%>:@U.Pref.na@ PL-OT ;
-@U.Pref.na@%<px2pl%>:@U.Pref.na@%>nan PL-O ;
-@D.Pref@:@D.Pref@                     PL-O ;
-
+!LEXICON NA-PL-O
+!%<n%>%<aa%>%<sg%>: K ; 
+!%<n%>%<aa%>: POSS-O ;
+!
+!LEXICON POSS-O
+!
+!@U.Poss.ne@%<px1sg%>:@U.Poss.ne@ PL-O ;
+!@U.Poss.ne@%<px1pl%>:@U.Poss.ne@%>nan PL-O ;
+!@U.Poss.he@%<px3sg%>:@U.Poss.he@ PL-O ;
+!@U.Poss.he@%<px3pl%>:@U.Poss.he@%>nan PL-O ;
+!@U.Poss.na@%<px2sg%>:@U.Poss.na@ PL-OT ;
+!@U.Poss.na@%<px2pl%>:@U.Poss.na@%>nan PL-O ;
+!@D.Pref@:@D.Pref@                     PL-O ;
+!
 !%<n%>%<an%>%<sg%>: K ;
 !%<n%>%<an%>%<poss%>: POSS ;
 !%<n%>%<an%>%<pl%>: NAO-PLURAL ;
-
-LEXICON POSS-O
-
-@U.Pref.ne@%<px1sg%>:@U.Pref.ne@ PL-OT ;
-@U.Pref.ne@%<px1pl%>:@U.Pref.ne@%>nan PL-OT ;
-@U.Pref.he@%<px3sg%>:@U.Pref.he@ PL-OT ;
-@U.Pref.he@%<px3pl%>:@U.Pref.he@%>nan PL-OT ;
-@U.Pref.na@%<px2sg%>:@U.Pref.na@ PL-OT ;
-@U.Pref.na@%<px2pl%>:@U.Pref.na@%>nan PL-OT ;
-@D.Pref@:@D.Pref@                     PL-OT ;
-
 
 
 !LEXICON NA-PL-E
@@ -100,6 +89,7 @@ LEXICON POSS-O
 
 LEXICON PL-OT
 
+%<sg%>: K ;
 %<pl%>:%>ȯtse K ;
 
 !LEXICON NI-PL-ET
