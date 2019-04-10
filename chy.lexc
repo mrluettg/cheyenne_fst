@@ -15,6 +15,8 @@ Multichar_Symbols
 %{é%}
 %{ó%}
 %{a%}
+%{ǒ%}
+%{ě%}
 
 
 %<pl%> !plural
@@ -97,8 +99,8 @@ LEXICON POSS-O
 @U.Poss.ma@%<px4%>:@U.Poss.ma@       PL-O ;
 @U.Poss.na@%<px1plx%>:@U.Poss.na@%>áne  PL-O ;
 @U.Poss.ne@%<px1pli%>:@U.Poss.ne@%>ane  PL-O ;
-@U.Poss.ne@%<px2pl%>:@U.Poss.ne@%>évo  PL-O ;
-@U.Poss.he@%<px3pl%>:@U.Poss.he@%>évo  PL-O ;
+@U.Poss.ne@%<px2pl%>:@U.Poss.ne@%>év%{ǒ%}  PL-O ;
+@U.Poss.he@%<px3pl%>:@U.Poss.he@%>év%{ǒ%}  OBV-POSS ;
 @U.Poss.ø@:@U.Poss.ø@                      PL-O ;
 
 LEXICON PL-O
@@ -106,8 +108,8 @@ LEXICON PL-O
 %<sg%>: K ;
 %<pl%>:%>o K ;
 
-LEXICON OBV-O
-%<obv%>:%>o%{h%} K ;
+LEXICON OBV-POSS !consistent in the animate third person. 
+%<obv%>: óho K ;
 
 LEXICON NA-PL-E
 %<n%>%<aa%>: POSS-E ;
@@ -119,8 +121,8 @@ LEXICON POSS-E
 @U.Poss.ma@%<px4%>:@U.Poss.ma@       PL-E ;
 @U.Poss.na@%<px1plx%>:@U.Poss.na@%>áne  PL-E ;
 @U.Poss.ne@%<px1pli%>:@U.Poss.ne@%>ane  PL-E ;
-@U.Poss.ne@%<px2pl%>:@U.Poss.ne@%>évo  PL-E ;
-@U.Poss.he@%<px3pl%>:@U.Poss.he@%>évo  PL-E ;
+@U.Poss.ne@%<px2pl%>:@U.Poss.ne@%>év%{ǒ%}  PL-E ;
+@U.Poss.he@%<px3pl%>:@U.Poss.he@%>év%{ǒ%}  OBV-POSS;
 @U.Poss.ø@:@U.Poss.ø@                      PL-E ;
 
 LEXICON PL-E
@@ -134,7 +136,7 @@ LEXICON Nouns !ȯ ȧ ė á é ó š
 !set from abstract form list. 
 eʼha:eʼhah  NA-PL-O ; ! "son"
 hátseške:hátseškeh NA-PL-O ; !"ant" 
-méʼeševotse:méʼeševot NA-PL-O ; !"baby"
+méʼėševotse:méʼeševot NA-PL-O ; !"baby"
 móneše:móneškeh NA-PL-O ; !"bean"
 nákohé:nákohé NA-PL-O ; !"bear"
 hánoma:hánomah NA-PL-O ; !"bee"
@@ -146,7 +148,7 @@ meeʼe:méen NA-PL-O ;
 vóhkoehe:vóhkoeheh NA-PL-O ;
 
 hova:hováhn NA-PL-E ;
-kokȯhéaxá:kokȯhéaxán NA-PL-E ;
+kokȯhéáxa:kokȯhéaxán NA-PL-E ;
 váótséva:váotseváhn NA-PL-E ;
 kosa:kosán NA-PL-E ;
 xaoʼo:xaón NA-PL-E ;
@@ -167,7 +169,8 @@ mȧheo'o:maheón NA-PL-O ; !house
 sémo:sémon NI-PL-OT ; !boat
 maahe:maahe NI-PL-OT ; !arrow
 véhaname:véhanam NA-PL-O ; !chief
-étove:%{v%}étovan NI-PL-OT ; 
+étove:%{v%}étovan NI-PL-OT ;
+
 
 
 

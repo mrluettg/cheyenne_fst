@@ -6,6 +6,8 @@ a b e h k l ' m n o p s š t v x ė ȯ ȧ á é ó
 %{v%}:v %{v%}:0
 %{'%}:' %{'%}:'
 %{h%}:h %{h%}:'
+%{ǒ%}:o %{ǒ%}:0
+%{ě%}:e %{ě%}:0
 %>:0 
 
 ; 
@@ -48,6 +50,7 @@ t:tse <=> _ .#. ;
 [á:a | é:e | ó:o ] <=>  _ .#. ;
 			_ Con: .#. ;
 			_ Con: Con: .#. ;
+			_ Vow: Con: .#. ;
 			_ %> .#. ; 
 			except Vow: _ .#. ;
 				Vow: _ Con: .#. ; 
@@ -68,28 +71,28 @@ t:tse <=> _ .#. ;
 	Vow: _ Con: .#. ; 
 	Vow: %>: _ .#. ;
 
-"Difference between obv and plural - obv"
-%{h%}:h <=> Vow: (%>: ) Vow: _ 
-
-"Difference between obv and plural - plural"
-%{'%}:' <=> Vow: (%>: ) Vow: _ 
-
 "if the final high tone vowel is neutralized and there is a single high tone followed by a neutral tone, that neutral tone will become high."
 [a:á | e:é | o:ó ] <=> HighVow _ Con: [Con: | Vow: ]* HighVow: Con:* .#. ;
+
 "e -> 0 morpheme boundary and vowel. Goes with next rule"
 [e:0 | o:0 ] <=> _ %>: Vow: ;
 
-!"vowel gets high tone if e."
+
 
 "voicesless becomes high tone if an e %> comes before it in morphology"
 [ė:é | ȯ:ó] <=> [e: | o: ]%>: _ ;
+
 
 "Accomplish %{n%} in possessive"
 %{n%}:0 <=> _ e: %>: %{v%}: ; 
 
 "Accomplish %{v%} in possessive" 
 %{v%}:v <=> h: e: %>: _ ;
+
 "> is bad"
 >:0 <=> _ ;
+
+"Possessive obviatative %{ǒ%}"
+%{ǒ%}:0 <=> _ %>: ó ;
 
 
