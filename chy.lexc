@@ -106,6 +106,8 @@ LEXICON PL-O
 %<sg%>: K ;
 %<pl%>:%>o K ;
 
+LEXICON OBV-O
+%<obv%>:%>o%{h%} K ;
 
 LEXICON NA-PL-E
 %<n%>%<aa%>: POSS-E ;

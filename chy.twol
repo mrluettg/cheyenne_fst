@@ -2,14 +2,10 @@ Alphabet
 
 a b e h k l ' m n o p s š t v x ė ȯ ȧ á é ó 
 
-%{a%}:a %{a%}:0
-%{e%}:e %{e%}:0
-%{t%}:t %{t%}:ts
-%{N%}:0 %{N%}:n
-%{O%}:ȯ %{O%}:ó
-%{E%}:ė %{E%}:é
 %{n%}:n %{n%}:0
 %{v%}:v %{v%}:0
+%{'%}:' %{'%}:'
+%{h%}:h %{h%}:'
 %>:0 
 
 ; 
@@ -23,6 +19,8 @@ Con = h k l ' m n p s š t v x ;
 HighVow = á é ó ; !this refers to tone. 
 
 VoicelessFric = h s š x ;
+
+PluralObvArchicons = %{'%} %{h%} ;
 
 Rules
 
@@ -69,7 +67,12 @@ t:tse <=> _ .#. ;
 [ o:o'o | ó:o'o | e:e'e | é:e'e] <=> Vow: _ .#. ;
 	Vow: _ Con: .#. ; 
 	Vow: %>: _ .#. ;
-	
+
+"Difference between obv and plural - obv"
+%{h%}:h <=> Vow: (%>: ) Vow: _ 
+
+"Difference between obv and plural - plural"
+%{'%}:' <=> Vow: (%>: ) Vow: _ 
 
 "if the final high tone vowel is neutralized and there is a single high tone followed by a neutral tone, that neutral tone will become high."
 [a:á | e:é | o:ó ] <=> HighVow _ Con: [Con: | Vow: ]* HighVow: Con:* .#. ;
