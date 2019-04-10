@@ -39,8 +39,8 @@ LEXICON K
 
 
 LEXICON POSSPREF
-@U.Poss.ne@:@U.Poss.ne@%{n%}e%> Nouns ;
-@U.Poss.na@:@U.Poss.na@na%> Nouns ;
+@U.Poss.na@:@U.Poss.na@%{n%}a%> Nouns ;
+@U.Poss.ne@:@U.Poss.ne@ne%> Nouns ;
 @U.Poss.he@:@U.Poss.he@he%> Nouns ;
 @U.Poss.ma@:@U.Poss.ma@ma%> Nouns ;
 @U.Poss.ø@:@U.Poss.ø@                            Nouns ; 
@@ -50,98 +50,122 @@ LEXICON NI-PL-OT
 %<n%>%<nn%>: POSS-OT ; 
 
 LEXICON POSS-OT
-
-@U.Poss.ne@%<px1sg%>:@U.Poss.ne@       PL-OT ;
-@U.Poss.na@%<px2sg%>:@U.Poss.na@       PL-OT ;
+@U.Poss.na@%<px1sg%>:@U.Poss.na@       PL-OT ;
+@U.Poss.ne@%<px2sg%>:@U.Poss.ne@       PL-OT ;
 @U.Poss.he@%<px3sg%>:@U.Poss.he@       PL-OT ;
 @U.Poss.ma@%<px4%>:@U.Poss.ma@       PL-OT ;
-@U.Poss.ne@%<px1pl%>:@U.Poss.ne@%>nán  PL-OT ;
-@U.Poss.na@%<px2pl%>:@U.Poss.na@%>nán  PL-OT ;
-@U.Poss.he@%<px3pl%>:@U.Poss.he@%>nán  PL-OT ;
+@U.Poss.na@%<px1plx%>:@U.Poss.na@%>áne  PL-OT ;
+@U.Poss.ne@%<px1pli%>:@U.Poss.ne@%>ane  PL-OT ;
+@U.Poss.ne@%<px2pl%>:@U.Poss.ne@%>évo  PL-OT ;
+@U.Poss.he@%<px3pl%>:@U.Poss.he@%>évo  PL-OT ;
 @U.Poss.ø@:@U.Poss.ø@                      PL-OT ;
-
-
-!LEXICON NA-PL-O
-!%<n%>%<aa%>%<sg%>: K ; 
-!%<n%>%<aa%>: POSS-O ;
-!
-!LEXICON POSS-O
-!
-!@U.Poss.ne@%<px1sg%>:@U.Poss.ne@ PL-O ;
-!@U.Poss.ne@%<px1pl%>:@U.Poss.ne@%>nan PL-O ;
-!@U.Poss.he@%<px3sg%>:@U.Poss.he@ PL-O ;
-!@U.Poss.he@%<px3pl%>:@U.Poss.he@%>nan PL-O ;
-!@U.Poss.na@%<px2sg%>:@U.Poss.na@ PL-OT ;
-!@U.Poss.na@%<px2pl%>:@U.Poss.na@%>nan PL-O ;
-!@D.Pref@:@D.Pref@                     PL-O ;
-!
-!%<n%>%<an%>%<sg%>: K ;
-!%<n%>%<an%>%<poss%>: POSS ;
-!%<n%>%<an%>%<pl%>: NAO-PLURAL ;
-
-
-!LEXICON NA-PL-E
-!%<n%>%<an%>%<sg%>: K ;
-!%<n%>%<an%>%<poss%>: POSS ;
-!%<n%>%<an%>%<pl%>: NAE-PLURAL ;
-
-
 
 LEXICON PL-OT
 
 %<sg%>: K ;
 %<pl%>:%>ȯtse K ;
 
-!LEXICON NI-PL-ET
-!%<n%>%<inan%>%<sg%>: K ; 
-!%<n%>%<inan%>%<poss%>: POSS ; 
-!%<n%>%<inan%>%<pl%>: NIET-PLURAL;
 
-!LEXICON NIET-PLURAL
-!%<et%>:%>ėstse K ;
+LEXICON NI-PL-ET
+%<n%>%<nn%>: POSS-ET ; 
+
+LEXICON POSS-ET
+@U.Poss.na@%<px1sg%>:@U.Poss.na@       PL-ET ;
+@U.Poss.ne@%<px2sg%>:@U.Poss.ne@       PL-ET ;
+@U.Poss.he@%<px3sg%>:@U.Poss.he@       PL-ET ;
+@U.Poss.ma@%<px4%>:@U.Poss.ma@       PL-ET ;
+@U.Poss.na@%<px1plx%>:@U.Poss.na@%>áne  PL-ET ;
+@U.Poss.ne@%<px1pli%>:@U.Poss.ne@%>ane  PL-ET ;
+@U.Poss.ne@%<px2pl%>:@U.Poss.ne@%>évo  PL-ET ;
+@U.Poss.he@%<px3pl%>:@U.Poss.he@%>évo  PL-ET ;
+@U.Poss.ø@:@U.Poss.ø@                      PL-ET ;
+
+LEXICON PL-ET
+
+%<sg%>: K ;
+%<pl%>:%>ėstse K ;
 
 
-!%<n%>%<nn%>%<pl%>:%>ėstse K ;
-!%<n%>%<nn%>%<sg%>: K ; 
+
+LEXICON NA-PL-O
+%<n%>%<aa%>: POSS-O ;
+
+LEXICON POSS-O
+@U.Poss.na@%<px1sg%>:@U.Poss.na@       PL-O ;
+@U.Poss.ne@%<px2sg%>:@U.Poss.ne@       PL-O ;
+@U.Poss.he@%<px3sg%>:@U.Poss.he@       PL-O ;
+@U.Poss.ma@%<px4%>:@U.Poss.ma@       PL-O ;
+@U.Poss.na@%<px1plx%>:@U.Poss.na@%>áne  PL-O ;
+@U.Poss.ne@%<px1pli%>:@U.Poss.ne@%>ane  PL-O ;
+@U.Poss.ne@%<px2pl%>:@U.Poss.ne@%>évo  PL-O ;
+@U.Poss.he@%<px3pl%>:@U.Poss.he@%>évo  PL-O ;
+@U.Poss.ø@:@U.Poss.ø@                      PL-O ;
+
+LEXICON PL-O
+
+%<sg%>: K ;
+%<pl%>:%>o K ;
+
+
+LEXICON NA-PL-E
+%<n%>%<aa%>: POSS-E ;
+
+LEXICON POSS-E
+@U.Poss.na@%<px1sg%>:@U.Poss.na@       PL-E ;
+@U.Poss.ne@%<px2sg%>:@U.Poss.ne@       PL-E ;
+@U.Poss.he@%<px3sg%>:@U.Poss.he@       PL-E ;
+@U.Poss.ma@%<px4%>:@U.Poss.ma@       PL-E ;
+@U.Poss.na@%<px1plx%>:@U.Poss.na@%>áne  PL-E ;
+@U.Poss.ne@%<px1pli%>:@U.Poss.ne@%>ane  PL-E ;
+@U.Poss.ne@%<px2pl%>:@U.Poss.ne@%>évo  PL-E ;
+@U.Poss.he@%<px3pl%>:@U.Poss.he@%>évo  PL-E ;
+@U.Poss.ø@:@U.Poss.ø@                      PL-E ;
+
+LEXICON PL-E
+
+%<sg%>: K ;
+%<pl%>:%>e K ;
+
+
 
 LEXICON Nouns !ȯ ȧ ė á é ó š
 !set from abstract form list. 
-!eʼha:eʼhah  NA-PL-O ; ! "son"
-!hátseške:hátseškeh NA-PL-O ; !"ant" 
-!méʼeševotse:méʼeševot NA-PL-O ; !"baby"
-!móneše:móneškeh NA-PL-O ; !"bean"
-!nákohé:nákohé NA-PL-O ; !"bear"
-!hánoma:hánomah NA-PL-O ; !"bee"
-!póéso:póesón NA-PL-O ; !"cat"
-!hexovo:hexovón NA-PL-O ; !"comb"
-!tseeneéheoʼo:tseeneéheon NA-PL-O ; 
-!šéʼše:šéʼšé NA-PL-O ;
-!meeʼe:méen NA-PL-O ;
-!vóhkoehe:vóhkoeheh NA-PL-O ;
+eʼha:eʼhah  NA-PL-O ; ! "son"
+hátseške:hátseškeh NA-PL-O ; !"ant" 
+méʼeševotse:méʼeševot NA-PL-O ; !"baby"
+móneše:móneškeh NA-PL-O ; !"bean"
+nákohé:nákohé NA-PL-O ; !"bear"
+hánoma:hánomah NA-PL-O ; !"bee"
+póéso:póesón NA-PL-O ; !"cat"
+hexovo:hexovón NA-PL-O ; !"comb"
+tseeneéheoʼo:tseeneéheon NA-PL-O ; 
+šéʼše:šéʼšé NA-PL-O ;
+meeʼe:méen NA-PL-O ;
+vóhkoehe:vóhkoeheh NA-PL-O ;
 
-!hova:hováhn NA-PL-E ;
-!kokȯhéaxá:kokȯhéaxán NA-PL-E ;
-!váótséva:váotseváhn NA-PL-E ;
-!kosa:kosán NA-PL-E ;
-!xaoʼo:xaón NA-PL-E ;
+hova:hováhn NA-PL-E ;
+kokȯhéaxá:kokȯhéaxán NA-PL-E ;
+váótséva:váotseváhn NA-PL-E ;
+kosa:kosán NA-PL-E ;
+xaoʼo:xaón NA-PL-E ;
 
 maʼahtse:maʼahtsen NI-PL-OT ;
 hohkoxe:hohkoxeh NI-PL-OT ;
 heʼko:heʼkon NI-PL-OT ;
 moʼkeha:moʼkehan NI-PL-OT ; 
 
-!hoestáto:hoestátón NI-PL-ET ;
-!maʼkaeta:maʼkaeta NI-PL-ET ;
-!hoʼesta:hoʼestán NI-PL-ET ;
-!hóhkėhaʼe:hóhkėha' NI-PL-ET ;
+hoestáto:hoestátón NI-PL-ET ;
+maʼkaeta:maʼkaeta NI-PL-ET ;
+hoʼesta:hoʼestán NI-PL-ET ;
+hóhkėhaʼe:hóhkėha' NI-PL-ET ;
 
 !ȯ ȧ ė á é ó š
 !set from possessives. 
-!mȧheo'o:maheón NA-PL-O ; !house
+mȧheo'o:maheón NA-PL-O ; !house
 sémo:sémon NI-PL-OT ; !boat
-!maahe:maahe NI-PL-OT ; !arrow
-!véhaname:véhanam NA-PL-O ; !chief
-
+maahe:maahe NI-PL-OT ; !arrow
+véhaname:véhanam NA-PL-O ; !chief
+étove:%{v%}étovan NI-PL-OT ; 
 
 
 
