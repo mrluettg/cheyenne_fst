@@ -33,21 +33,26 @@ t:ts <=> _ :e ;
 Cx:0 <=> _ .#. ; 
 	_ Con: .#. ;
 	where Cx in ( h k l n p s š v x ) ; 
+
 "t is exception to previous rule"
 t:tse <=> _ .#. ;
 
 "o and e become voiceless before e"
-[a:ȧ | e:ė | o:ȯ ] <=> _ ts ;
+![a:ȧ | e:ė | o:ȯ ] <=> _ t s ;
+Vx:Vy <=> _ t s ; 
 		except
 			Vow: _ ;
-			
+      where Vx in ( a  e  o )
+            Vy in ( ȧ  ė  ȯ )
+      matched ; 
+
 "' and m are also exceptions to previous rule"
 [':'e | m:me ] <=> _ .#. ;
 
 
-
 "neutralization of high tones at end of word"
-[á:a | é:e | ó:o ] <=>  _ .#. ;
+![á:a | é:e | ó:o ] <=>  _ .#. ;
+Vx:Vy <=>  _ .#. ;
 			_ Con: .#. ;
 			_ Con: Con: .#. ;
 			_ Vow: Con: .#. ;
@@ -55,9 +60,13 @@ t:tse <=> _ .#. ;
 			except Vow: _ .#. ;
 				Vow: _ Con: .#. ; 
 				Vow: %>: _ .#. ;
+     where Vx in ( á é ó ) 
+           Vy in ( a e o ) 
+     matched ; 
 
 "devoicing of neutral vowels before voiceless fricatives, but not in second to last syllable."
-[a:ȧ | e:ė | o:ȯ ] <=> _ (%>:) VoicelessFric: ;
+![a:ȧ | e:ė | o:ȯ ] <=> _ (%>:) VoicelessFric: ;
+Vx:Vy <=> _ (%>:) VoicelessFric: ;
 			except 
 			Vow: _ ;
 			.#. h: _ ; 
@@ -65,6 +74,11 @@ t:tse <=> _ .#. ;
 			_ Con: .#. ;
 			!Can't have three in a row. Middle stays as voiced.  
 			\h: Vow: VoicelessFric: VoicelessFric:* _ VoicelessFric: VoicelessFric:* (%>:) Vow: VoicelessFric:* ;
+     where Vx in ( a e o ) 
+           Vy in ( ȧ ė ė )
+     matched ; 
+
+!@ {n}:n a:ȧ >:0 s:s é:é m:m o:o n:0
 
 "final o becomes o'o after a vowel at the end of the word." !same thing happens with e
 [ o:o'o | ó:o'o | e:e'e | é:e'e] <=> Vow: _ .#. ;
@@ -80,7 +94,11 @@ t:tse <=> _ .#. ;
 
 
 "voicesless becomes high tone if an e %> comes before it in morphology"
-[ė:é | ȯ:ó] <=> [e: | o: ]%>: _ ;
+![ė:é | ȯ:ó] <=> [e: | o: ]%>: _ ;
+Vx:Vy <=> [e: | o: ] %>: _ ; 
+      where Vx in ( ė  ȯ  )
+            Vy in ( é  ó  ) 
+      matched ; 
 
 
 "Accomplish %{n%} in possessive"
