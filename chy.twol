@@ -86,11 +86,15 @@ Vx:Vy <=> _ (%>:) VoicelessFric: ;
 	Vow: %>: _ .#. ;
 
 "if the final high tone vowel is neutralized and there is a single high tone followed by a neutral tone, that neutral tone will become high."
-[a:á | e:é | o:ó ] <=> HighVow _ Con: [Con: | Vow: ]* HighVow: Con:* .#. ;
+Vx:Vy <=>  HighVow _ Con: [Con: | Vow: ]* HighVow: Con:* .#. ;
+     where Vx in ( a e o )
+           Vy in ( á é ó )
+     matched ; 
+
+!@ v:v á:á o:ó t:t s:s e:e v:v á:a h:0 n:0
 
 "e -> 0 morpheme boundary and vowel. Goes with next rule"
 [e:0 | o:0 ] <=> _ %>: Vow: ;
-
 
 
 "voicesless becomes high tone if an e %> comes before it in morphology"
