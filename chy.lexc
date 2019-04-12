@@ -19,6 +19,9 @@ Multichar_Symbols
 %{ǒ%}
 %{ě%}
 %{e%}
+%{s%}
+%{o%}
+%{'%}
 
 %<pl%> !plural
 %<n%> ! noun
@@ -38,7 +41,7 @@ LEXICON Root
 
 POSSPREF ;
 
-NAME ;
+Names ;
 
 LEXICON K 
 
@@ -52,9 +55,10 @@ LEXICON NAME
 %<name%>: K ;
 
 LEXICON HEVAHO
-%<obv1>%:%{H%}evaho ;
+%<obv1%>:%>%{H%}evaho K ;
+
 LEXICON HEVENO
-%<obv2>%:%{H%}eveno ;
+%<obv2%>:%>%{H%}eveno K ;
 
 
 
@@ -126,7 +130,7 @@ LEXICON POSS-O
 LEXICON PL-O
 
 %<sg%>: K ;
-%<pl%>:%>o K ;
+%<pl%>:%>o%{'%}%{o%} K ;
 
 LEXICON OBV-POSS !consistent in the animate third person. 
 %<obv%>: óho K ;
@@ -148,9 +152,9 @@ LEXICON POSS-E
 LEXICON PL-E
 
 %<sg%>: K ;
-%<pl%>:%>e K ;
+%<pl%>:%>e%{'%}%{o%} K ;
 
-LECION Names 
+LEXICON Names 
 mary:mary NAME ;
 rachel:rachel NAME ;
 jesus:jesus NAME ;
@@ -161,15 +165,15 @@ LEXICON Nouns !ȯ ȧ ė á é ó š
 !set from abstract form list. 
 eʼha:eʼhah  NA-PL-O ; ! "son"
 hátseške:hátseškeh NA-PL-O ; !"ant" 
-méʼėševotse:méʼeševot NA-PL-O ; !"baby"
+méʼėševotse:méʼeševot%{s%}%{e%} NA-PL-O ; !"baby"
 móneše:móneškeh NA-PL-O ; !"bean"
-nákohé:nákohé NA-PL-O ; !"bear"
+náhkohe:náhkohe NA-PL-O ; !"bear"
 hánoma:hánomah NA-PL-O ; !"bee"
 póéso:póesón NA-PL-O ; !"cat"
 hexovo:hexovón NA-PL-O ; !"comb"
 tseeneéheoʼo:tseeneéheon%{o%} NA-PL-O ; 
 šéʼše:šéʼšé NA-PL-O ;
-meeʼe:méen%{e%} NA-PL-O ;
+meeʼe:méen%{o%} NA-PL-O ;
 vóhkoehe:vóhkoeheh NA-PL-O ;
 
 hova:hováhn NA-PL-E ;
@@ -184,7 +188,7 @@ heʼko:heʼkon NI-PL-OT ;
 moʼkeha:moʼkehan NI-PL-OT ; 
 
 hoestáto:hoestátón NI-PL-ET ;
-maʼkaeta:maʼkaeta NI-PL-ET ;
+maʼkaeta:maʼkaetán NI-PL-ET ;
 hoʼesta:hoʼestán NI-PL-ET ;
 hóhkėhaʼe:hóhkėha'%{e%} NI-PL-ET ;
 
@@ -196,7 +200,7 @@ maahe:maahe NI-PL-OT ; !arrow
 véhaname:véhanam%{e%} NA-PL-O ; !chief
 
 étove:%{v%}étovan NI-PL-OT ;
-amȧho'hestȯtse:amaho'hestot NI-PL-OT ;
+amȧho'hestȯtse:amaho'hestot%{s%}%{e%} NI-PL-OT ;
 
 
 

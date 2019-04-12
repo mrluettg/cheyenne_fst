@@ -4,20 +4,21 @@ a b e h k l ' m n o p s š t v x ė ȯ ȧ á é ó
 
 %{n%}:n %{n%}:0
 %{v%}:v %{v%}:0
-%{'%}:' %{'%}:'
 %{h%}:h %{h%}:'
 %{ǒ%}:o %{ǒ%}:0
 %{ě%}:e %{ě%}:0
-%{e%}:0 %{e%}:e
-%{o%}:0 %{o%}:e !ke, pe, 'e, etc. 
-%{s%}:0 %{o%}:s !tse
+%{e%}:0 %{e%}:e !ke, pe, 'e, etc. 
+%{o%}:0 %{o%}:o %{o%}:e !for plural o'o
+%{s%}:0 %{s%}:s !tse
+%{'%}:0 %{'%}:' !for plural o'o 
+%{H%}:h %{H%}:0 !for names
 %>:0 
 
 ; 
 
 Sets 
 
-Vow = a e o ȧ ė ȯ á é ó;
+Vow = a e o ȧ ė ȯ á é ó ;
 
 Con = h k l ' m n p s š t v x ;
 
@@ -29,16 +30,19 @@ DeleteCon = h s š n ;
 
 AddECon = k l ' m p v ; !t technicially in here. but ends in e
 
-PluralObvArchicons = %{'%} %{h%} ;
+FinalMultichar = %{e%} %{o%} %{s%} %{'%} ;
+
+
+
 
 Rules
 
-"remove end consonant"
-VoicelessFric:0 <=> _ .#. ; 
-	_ Con: .#. ; 
+"remove end consonant if no morpheme boundary"
+[h:0 | s:0 | š:0 | n:0] <=> _ DeleteCon:* FinalMultichar:* .#. ; 
+		except Vow: Vow: _ %{o%}: .#. ;
 
 "accomplish t:tse <=> _ .#. t/%{s%}"
-%{s%}:0 <=> _ %{e%}: %>: ; 
+%{s%}:s <=> _ %{e%}: .#. ; 
 
 "Accomplish [':'e | m:me ] <=> _ .#. ;"
 %{e%}:0 <=> _ %>: ; 
@@ -48,56 +52,74 @@ Cx:' <=> Vow: Vow: _ %{o%}: .#. ;
 	where Cx in (h s š n) ; 
 
 "Accomplish xaon -> xao'o/// o"
-%{o%}:0 <=> _ %>: ;
+%{o%}:Vx <=> Vow: Vy: DeleteCon: _ .#. ;
+	where Vx in (e o)
+		Vy in (e o)
+	matched ;
 
+"Accomplish xaon -> xao'o/// o but where o has an accent"
+%{o%}:Vx <=> Vow: Vy: DeleteCon: _ .#. ;
+	where Vx in (e o)
+		Vy in (é ó)
+	matched ;
+
+"Accomplish xaon -> xao'o/// o but where o has an accent"
+%{o%}:Vx <=> Vow: Vy: DeleteCon: _ .#. ;
+	where Vx in (e o)
+		Vy in (é ó)
+	matched ;
 
 !@ v:v é: h:h a:a n:n a:a m:m {e}:0
 
-"o and e become voiceless before e"
-[a:ȧ | e:ė | o:ȯ ] <=> _ ts ;
+"Accomplish  nákȯhéo -> nákȯhéo'o /// o"
+%{o%}:o <=> Vow: %>: Vow: %{'%}: _ ;
+"Accomplish  nákȯhéo -> nákȯhéo'o /// '"
+%{'%}:' <=> Vow: %>: Vow: _ ;
+
+
+
+
+"o and e become voiceless before t"
+[a:ȧ | e:ė | o:ȯ ] <=> _ t: s:  ;
+			_ t: %{s%}:  ; 
 		except
 			Vow: _ ;
+			_ t: %{s%}: %{e%}: %>: [a: | o: | ȧ: | ȯ: | á: | ó: ] ; ! so no méʼėševȯto
 			
 
 
-"neutralization of high tones at end of word"
-[á:a | é:e | ó:o ] <=>  _ .#. ;
-			_ Con: .#. ;
-			_ Con: Con: .#. ;
-			_ Vow: Con: .#. ;
-			_ %> .#. ; 
-			except Vow: _ .#. ;
-				Vow: _ Con: .#. ; 
-				Vow: %>: _ .#. ;
+"neutralization of é and ó at end of word"
+[é:e | ó:o ] <=>  _ Con:* FinalMultichar:* .#. ;
+			_ Vow: Con: FinalMultichar:* .#. ;!meeʼe
+			_ (Con:) >: Vow: FinalMultichar:* ;!to prevent hexovóno ón>o{'}{o}
+			except Vow: _ FinalMultichar:* .#. ;
+				Vow: _ Con: FinalMultichar:* .#. ;
+"Neutralization for á"
+[á:a] <=> _ Con: (Con:) FinalMultichar:* .#. ;
+
 
 "devoicing of neutral vowels before voiceless fricatives, but not in second to last syllable."
 [a:ȧ | e:ė | o:ȯ ] <=> _ (%>:) VoicelessFric: ;
 			except 
 			Vow: _ ;
 			h: _ ; 
-			_ VoicelessFric: Con:* (%>:) Vow: Con:* .#. ; 
-			_ Con: .#. ;
+			_ VoicelessFric: Con:* (%>:) Vow: Con:* FinalMultichar:* .#. ; 
+			_ VoicelessFric: %>: Vow: FinalMultichar:* .#. ; !hátseškeh>o{'}{o}
+			_ Con: FinalMultichar:* .#. ;
 			!Can't have three in a row. Middle stays as voiced.  
 			\h: Vow: VoicelessFric: VoicelessFric:* _ VoicelessFric: VoicelessFric:* (%>:) Vow: VoicelessFric:* ;
-"devoicing of neutral vowels before final t"
-[a:ȧ | e:ė | o:ȯ ] <=> _ (%>:) t: ;
-"final o becomes o'o after a vowel at the end of the word." !same thing happens with e
-[ o:o'o | ó:o'o | e:e'e | é:e'e] <=> Vow: _ .#. ;
-	Vow: _ Con: .#. ; 
-	Vow: %>: _ .#. ;
 
 "if the final high tone vowel is neutralized and there is a single high tone followed by a neutral tone, that neutral tone will become high."
-[a:á | e:é | o:ó ] <=> HighVow _ Con: [Con: | Vow: ]* HighVow: Con:* .#. ;
+[a:á | e:é | o:ó ] <=> HighVow _ Con: [Con: | Vow: ]* HighVow: Con:* FinalMultichar:* .#. ;
 			except 
 			_ t: .#. ; 
 
-"e -> 0 morpheme boundary and vowel. Goes with next rule"
-[e:0 | o:0 ] <=> _ %>: Vow: ;
-
+"e -> 0 morpheme boundary voiceless vowel."
+[e:0 | o:0 ] <=> _ %>: [ė: | ȯ: ]  ;
 
 
 "voicesless becomes high tone if an e %> comes before it in morphology"
-[ė:é | ȯ:ó] <=> [e: | o: ]%>: _ ;
+[ė:é | ȯ:ó] <=> [e: | o: ]%>: _ ; 
 
 
 "Accomplish %{n%} in possessive"
