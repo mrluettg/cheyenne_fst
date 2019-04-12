@@ -8,6 +8,9 @@ a b e h k l ' m n o p s š t v x ė ȯ ȧ á é ó
 %{h%}:h %{h%}:'
 %{ǒ%}:o %{ǒ%}:0
 %{ě%}:e %{ě%}:0
+%{e%}:0 %{e%}:e
+%{o%}:0 %{o%}:e !ke, pe, 'e, etc. 
+%{s%}:0 %{o%}:s !tse
 %>:0 
 
 ; 
@@ -20,39 +23,45 @@ Con = h k l ' m n p s š t v x ;
 
 HighVow = á é ó ; !this refers to tone. 
 
-VoicelessFric = h s š x ;
+VoicelessFric = h s š x ; !deleted if no following vowel
+
+DeleteCon = h s š n ;
+
+AddECon = k l ' m p v ; !t technicially in here. but ends in e
 
 PluralObvArchicons = %{'%} %{h%} ;
 
 Rules
 
-"t becomes ts before e"
-t:ts <=> _ :e ; 
-
 "remove end consonant"
-Cx:0 <=> _ .#. ; 
-	_ Con: .#. ;
-	where Cx in ( h k l n p s š v x ) ; 
+VoicelessFric:0 <=> _ .#. ; 
+	_ Con: .#. ; 
 
-"t is exception to previous rule"
-t:tse <=> _ .#. ;
+"accomplish t:tse <=> _ .#. t/%{s%}"
+%{s%}:0 <=> _ %{e%}: %>: ; 
+
+"Accomplish [':'e | m:me ] <=> _ .#. ;"
+%{e%}:0 <=> _ %>: ; 
+
+"Accomplish xaon -> xao'o/// n"
+Cx:' <=> Vow: Vow: _ %{o%}: .#. ;
+	where Cx in (h s š n) ; 
+
+"Accomplish xaon -> xao'o/// o"
+%{o%}:0 <=> _ %>: ;
+
+
+!@ v:v é: h:h a:a n:n a:a m:m {e}:0
 
 "o and e become voiceless before e"
-![a:ȧ | e:ė | o:ȯ ] <=> _ t s ;
-Vx:Vy <=> _ t s ; 
+[a:ȧ | e:ė | o:ȯ ] <=> _ ts ;
 		except
 			Vow: _ ;
-      where Vx in ( a  e  o )
-            Vy in ( ȧ  ė  ȯ )
-      matched ; 
-
-"' and m are also exceptions to previous rule"
-[':'e | m:me ] <=> _ .#. ;
+			
 
 
 "neutralization of high tones at end of word"
-![á:a | é:e | ó:o ] <=>  _ .#. ;
-Vx:Vy <=>  _ .#. ;
+[á:a | é:e | ó:o ] <=>  _ .#. ;
 			_ Con: .#. ;
 			_ Con: Con: .#. ;
 			_ Vow: Con: .#. ;
@@ -60,49 +69,35 @@ Vx:Vy <=>  _ .#. ;
 			except Vow: _ .#. ;
 				Vow: _ Con: .#. ; 
 				Vow: %>: _ .#. ;
-     where Vx in ( á é ó ) 
-           Vy in ( a e o ) 
-     matched ; 
 
 "devoicing of neutral vowels before voiceless fricatives, but not in second to last syllable."
-![a:ȧ | e:ė | o:ȯ ] <=> _ (%>:) VoicelessFric: ;
-Vx:Vy <=> _ (%>:) VoicelessFric: ;
+[a:ȧ | e:ė | o:ȯ ] <=> _ (%>:) VoicelessFric: ;
 			except 
 			Vow: _ ;
-			.#. h: _ ; 
+			h: _ ; 
 			_ VoicelessFric: Con:* (%>:) Vow: Con:* .#. ; 
 			_ Con: .#. ;
 			!Can't have three in a row. Middle stays as voiced.  
 			\h: Vow: VoicelessFric: VoicelessFric:* _ VoicelessFric: VoicelessFric:* (%>:) Vow: VoicelessFric:* ;
-     where Vx in ( a e o ) 
-           Vy in ( ȧ ė ė )
-     matched ; 
-
-!@ {n}:n a:ȧ >:0 s:s é:é m:m o:o n:0
-
+"devoicing of neutral vowels before final t"
+[a:ȧ | e:ė | o:ȯ ] <=> _ (%>:) t: ;
 "final o becomes o'o after a vowel at the end of the word." !same thing happens with e
 [ o:o'o | ó:o'o | e:e'e | é:e'e] <=> Vow: _ .#. ;
 	Vow: _ Con: .#. ; 
 	Vow: %>: _ .#. ;
 
 "if the final high tone vowel is neutralized and there is a single high tone followed by a neutral tone, that neutral tone will become high."
-Vx:Vy <=>  HighVow _ Con: [Con: | Vow: ]* HighVow: Con:* .#. ;
-     where Vx in ( a e o )
-           Vy in ( á é ó )
-     matched ; 
-
-!@ v:v á:á o:ó t:t s:s e:e v:v á:a h:0 n:0
+[a:á | e:é | o:ó ] <=> HighVow _ Con: [Con: | Vow: ]* HighVow: Con:* .#. ;
+			except 
+			_ t: .#. ; 
 
 "e -> 0 morpheme boundary and vowel. Goes with next rule"
 [e:0 | o:0 ] <=> _ %>: Vow: ;
 
 
+
 "voicesless becomes high tone if an e %> comes before it in morphology"
-![ė:é | ȯ:ó] <=> [e: | o: ]%>: _ ;
-Vx:Vy <=> [e: | o: ] %>: _ ; 
-      where Vx in ( ė  ȯ  )
-            Vy in ( é  ó  ) 
-      matched ; 
+[ė:é | ȯ:ó] <=> [e: | o: ]%>: _ ;
 
 
 "Accomplish %{n%} in possessive"

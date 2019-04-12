@@ -10,19 +10,22 @@ Multichar_Symbols
 %<px4%> !someone's 
 
 %{n%} !for possesives disappearing
-%{h%} !for possesives disappearing. 
+%{h%} !for possesives disappearing.
+%{H%} !for names hevaho and heveno 
 %{á%}
 %{é%}
 %{ó%}
 %{a%}
 %{ǒ%}
 %{ě%}
-
+%{e%}
 
 %<pl%> !plural
 %<n%> ! noun
 %<aa%> ! animate
 %<nn%>  ! inanimate
+
+%<name%> !name
 @U.Poss.ne@
 @U.Poss.na@
 @U.Poss.he@
@@ -30,16 +33,33 @@ Multichar_Symbols
 @U.Poss.ø@
 ! Possessive - Stem - Plural
 
+
 LEXICON Root
 
 POSSPREF ;
 
+NAME ;
 
 LEXICON K 
 
 # ;
 
+!NAME NAME NAME NAME NAME NAME NAME NAME NAME NAME NAME NAME NAME NAME NAME NAME 
 
+LEXICON NAME
+%<name%>: HEVAHO ;
+%<name%>: HEVENO ;
+%<name%>: K ;
+
+LEXICON HEVAHO
+%<obv1>%:%{H%}evaho ;
+LEXICON HEVENO
+%<obv2>%:%{H%}eveno ;
+
+
+
+
+!NOUN NOUN NOUN NOUN NOUN NOUN NOUN NOUN NOUN NOUN NOUN NOUN NOUN NOUN NOUN NOUN 
 LEXICON POSSPREF
 @U.Poss.na@:@U.Poss.na@%{n%}a%> Nouns ;
 @U.Poss.ne@:@U.Poss.ne@ne%> Nouns ;
@@ -130,6 +150,11 @@ LEXICON PL-E
 %<sg%>: K ;
 %<pl%>:%>e K ;
 
+LECION Names 
+mary:mary NAME ;
+rachel:rachel NAME ;
+jesus:jesus NAME ;
+
 
 
 LEXICON Nouns !ȯ ȧ ė á é ó š
@@ -142,16 +167,16 @@ nákohé:nákohé NA-PL-O ; !"bear"
 hánoma:hánomah NA-PL-O ; !"bee"
 póéso:póesón NA-PL-O ; !"cat"
 hexovo:hexovón NA-PL-O ; !"comb"
-tseeneéheoʼo:tseeneéheon NA-PL-O ; 
+tseeneéheoʼo:tseeneéheon%{o%} NA-PL-O ; 
 šéʼše:šéʼšé NA-PL-O ;
-meeʼe:méen NA-PL-O ;
+meeʼe:méen%{e%} NA-PL-O ;
 vóhkoehe:vóhkoeheh NA-PL-O ;
 
 hova:hováhn NA-PL-E ;
 kokȯhéáxa:kokȯhéaxán NA-PL-E ;
 váótséva:váotseváhn NA-PL-E ;
 kosa:kosán NA-PL-E ;
-xaoʼo:xaón NA-PL-E ;
+xaoʼo:xaón%{o%} NA-PL-E ;
 
 maʼahtse:maʼahtsen NI-PL-OT ;
 hohkoxe:hohkoxeh NI-PL-OT ;
@@ -161,16 +186,17 @@ moʼkeha:moʼkehan NI-PL-OT ;
 hoestáto:hoestátón NI-PL-ET ;
 maʼkaeta:maʼkaeta NI-PL-ET ;
 hoʼesta:hoʼestán NI-PL-ET ;
-hóhkėhaʼe:hóhkėha' NI-PL-ET ;
+hóhkėhaʼe:hóhkėha'%{e%} NI-PL-ET ;
 
 !ȯ ȧ ė á é ó š
 !set from possessives. 
-mȧheo'o:maheón NA-PL-O ; !house
+mȧheo'o:maheón%{o%} NA-PL-O ; !house
 sémo:sémon NI-PL-OT ; !boat
 maahe:maahe NI-PL-OT ; !arrow
-véhaname:véhanam NA-PL-O ; !chief
-étove:%{v%}étovan NI-PL-OT ;
+véhaname:véhanam%{e%} NA-PL-O ; !chief
 
+étove:%{v%}étovan NI-PL-OT ;
+amȧho'hestȯtse:amaho'hestot NI-PL-OT ;
 
 
 
