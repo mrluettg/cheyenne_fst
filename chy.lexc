@@ -11,7 +11,8 @@ Multichar_Symbols
 
 %{n%} !for possesives disappearing
 %{h%} !for possesives disappearing.
-%{H%} !for names hevaho and heveno 
+%{H%} !for names hevaho and heveno
+%{N%} !For twol rules not to apply in names
 %{á%}
 %{é%}
 %{ó%}
@@ -43,6 +44,8 @@ POSSPREF ;
 
 Names ;
 
+Names ; 
+
 LEXICON K 
 
 # ;
@@ -58,7 +61,7 @@ LEXICON HEVAHO
 %<obv1%>:%>%{H%}evaho K ;
 
 LEXICON HEVENO
-%<obv2%>:%>%{H%}eveno K ;
+%<obv2%>:%{H%}eveno # ;
 
 
 
