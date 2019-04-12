@@ -40,6 +40,8 @@ POSSPREF ;
 
 NAME ;
 
+Names ; 
+
 LEXICON K 
 
 # ;
@@ -52,9 +54,9 @@ LEXICON NAME
 %<name%>: K ;
 
 LEXICON HEVAHO
-%<obv1>%:%{H%}evaho ;
+%<obv1%>:%{H%}evaho # ;
 LEXICON HEVENO
-%<obv2>%:%{H%}eveno ;
+%<obv2%>:%{H%}eveno # ;
 
 
 
@@ -150,7 +152,8 @@ LEXICON PL-E
 %<sg%>: K ;
 %<pl%>:%>e K ;
 
-LECION Names 
+LEXICON Names 
+
 mary:mary NAME ;
 rachel:rachel NAME ;
 jesus:jesus NAME ;
