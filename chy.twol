@@ -1,24 +1,31 @@
 Alphabet 
 
-a b e h k l ' m n o p s š t v x ė ȯ ȧ á é ó 
+a e h k l ' m n o p s š t v x ė ȯ ȧ á é ó b c d f g i j k l q r u w y z
 
-%{n%}:n %{n%}:0
-%{v%}:v %{v%}:0
-%{h%}:h %{h%}:'
-%{ǒ%}:o %{ǒ%}:0
-%{ě%}:e %{ě%}:0
+%{n%}:n %{n%}:0 !odd possessive prefix
+%{v%}:v %{v%}:0 !odd possessive prefix
+%{é%}:é 	!odd possessive prefix
+%{ǒ%}:o %{ǒ%}:0 !obviatiative nouns 
+%{ě%}:e %{ě%}:0 !possessive suffux
 %{e%}:0 %{e%}:e !ke, pe, 'e, etc. 
 %{o%}:0 %{o%}:o %{o%}:e !for plural o'o
 %{s%}:0 %{s%}:s !tse
 %{'%}:0 %{'%}:' !for plural o'o 
-%{H%}:h %{H%}:0 !for names
+%{Ó%}:0 !for variation of IA obviatative. 
+%{E%}:e %{E%}:é !for variation of IA obviatative. 
+%{ē%}:e		!an e that NEVER changes
+%{ō%}:o		!an o that NEVER changes
+
+
+%{N%}:0
+
 %>:0 
 
 ; 
 
 Sets 
 
-Vow = a e o ȧ ė ȯ á é ó ;
+Vow = a e o ȧ ė ȯ á é ó %{E%};
 
 Con = h k l ' m n p s š t v x ;
 
@@ -32,6 +39,10 @@ AddECon = k l ' m p v ; !t technicially in here. but ends in e
 
 FinalMultichar = %{e%} %{o%} %{s%} %{'%} ;
 
+Eng = a b c d e f g h i j k l m n o p q r s t u v w x y z ;
+
+Chy = a e h k l ' m n o p s š t v x ė ȯ ȧ á é ó ;
+
 
 
 
@@ -40,9 +51,11 @@ Rules
 "remove end consonant if no morpheme boundary"
 [h:0 | s:0 | š:0 | n:0] <=> _ DeleteCon:* FinalMultichar:* .#. ; 
 		except Vow: Vow: _ %{o%}: .#. ;
+			_ Eng:* %{N%} ;
 
 "accomplish t:tse <=> _ .#. t/%{s%}"
 %{s%}:s <=> _ %{e%}: .#. ; 
+except _ Eng:* %{N%} ; 
 
 "Accomplish [':'e | m:me ] <=> _ .#. ;"
 %{e%}:0 <=> _ %>: ; 
@@ -73,8 +86,10 @@ Cx:' <=> Vow: Vow: _ %{o%}: .#. ;
 
 "Accomplish  nákȯhéo -> nákȯhéo'o /// o"
 %{o%}:o <=> Vow: %>: Vow: %{'%}: _ ;
+	%{ǒ%}: %>: Vow: %{'%}: _ ;
 "Accomplish  nákȯhéo -> nákȯhéo'o /// '"
 %{'%}:' <=> Vow: %>: Vow: _ ;
+	%{ǒ%}: %>: Vow: _ ;
 
 
 
@@ -83,6 +98,7 @@ Cx:' <=> Vow: Vow: _ %{o%}: .#. ;
 [a:ȧ | e:ė | o:ȯ ] <=> _ t: s:  ;
 			_ t: %{s%}:  ; 
 		except
+			_ Eng:* %{N%} ;
 			Vow: _ ;
 			_ t: %{s%}: %{e%}: %>: [a: | o: | ȧ: | ȯ: | á: | ó: ] ; ! so no méʼėševȯto
 			
@@ -96,11 +112,13 @@ Cx:' <=> Vow: Vow: _ %{o%}: .#. ;
 				Vow: _ Con: FinalMultichar:* .#. ;
 "Neutralization for á"
 [á:a] <=> _ Con: (Con:) FinalMultichar:* .#. ;
+	_ FinalMultichar:* .#. ;
 
 
 "devoicing of neutral vowels before voiceless fricatives, but not in second to last syllable."
 [a:ȧ | e:ė | o:ȯ ] <=> _ (%>:) VoicelessFric: ;
 			except 
+			_ Eng:* %{N%}: ;
 			Vow: _ ;
 			h: _ ; 
 			_ VoicelessFric: Con:* (%>:) Vow: Con:* FinalMultichar:* .#. ; 
@@ -114,24 +132,55 @@ Cx:' <=> Vow: Vow: _ %{o%}: .#. ;
 			except 
 			_ t: .#. ; 
 
+!RULES FOR COMBINING MORPHEMES. 
 "e -> 0 morpheme boundary voiceless vowel."
-[e:0 | o:0 ] <=> _ %>: [ė: | ȯ: ]  ;
+[e:0 | o:0 ] <=> _ %>: [ė: | ȯ: | é: | ó: ]  ;
 
 
 "voicesless becomes high tone if an e %> comes before it in morphology"
 [ė:é | ȯ:ó] <=> [e: | o: ]%>: _ ; 
 
-
-"Accomplish %{n%} in possessive"
-%{n%}:0 <=> _ e: %>: %{v%}: ; 
-
-"Accomplish %{v%} in possessive" 
-%{v%}:v <=> h: e: %>: _ ;
-
 "> is bad"
 >:0 <=> _ ;
 
 "Possessive obviatative %{ǒ%}"
-%{ǒ%}:0 <=> _ %>: ó ;
+%{ǒ%}:0 <=> _ %>: ó: ;
+
+!HANDLER FOR ENGLISH NAMES
+"N is bad (used to distinguish English names from bible."
+%{N%}:0 <=> _ ;
+
+"%{H%} only happens after rlwyaeiou"
+%{H%}:h <=> [a: | e: | i: | o: | u: | w: | y: | r: | l: ] %{N%}: %>: _ ;
+
+!HANDLER FOR ODD POSSESSIVES.
+"Odd possessives: é"
+%{é%}:é <=> _ ;
+"Odd possessives: n"
+n:0 <=> _ e: %>: %{v%}: %{é%}: ;
+"Odd possessives: prefix vowel"
+[a:0 | e:0 ] <=> n: _ %>: %{v%}: %{é%}: ;
+"Odd possessives: %{v%}:"
+%{v%}:v <=> h: e: %>: _ ;
+
+
+!VIA 
+"vowel change in verb positive and negetive."
+%{Ó%}:0 <=> _ ; 
+
+"Vowel change in verb positive and negetive: Vowel"
+[e:ó | a:á | é:ó] <=> _ >: %{Ó%}: ;
+"High tone he before me in negetive forms"
+%{E%}:é <=> _ >: m: e: ;
+
+
+!VII
+
+"Vowel with line over multichar never gets changed."
+[%{ē%}:e | %{ō%}:o ]<=> _ ; 
+
+
+
+
 
 

@@ -12,7 +12,7 @@ word_pos = {"na":"NOUN-A",
 "vai":"VERB-AI", 
 "vii":"VERB-II",
 "vta":"VERB-TA", 
-"vti":"VERB-AI",
+"vti":"VERB-TI",
 "fai":"FINAL-VAI",
 "fii":"FINAL-VII", 
 "fta":"FINAL-VAT", 
@@ -75,15 +75,15 @@ def eao_end_multichar(print_string):
 	return_str = ""
 	for line in line_lst:
 		if not line: continue
-		if line[-1] == "á":
-			line = line[:-1]
-			line += "%{á%}"
-		if line[-1] == "é": 
-			line = line[:-1]
-			line += "%{é%}"
-		if line[-1] == "ó": 
-			line = line[:-1]
-			line += "%{ó%}"
+	#	if line[-1] == "á":
+	#		line = line[:-1]
+	#		line += "%{á%}"
+	#	if line[-1] == "é": 
+	#		line = line[:-1]
+	#		line += "%{é%}"
+	#	if line[-1] == "ó": 
+	#		line = line[:-1]
+	#		line += "%{ó%}"
 		return_str += line + "\n"
 	return return_str
 
@@ -122,9 +122,8 @@ for line in file:
 		print_string = print_string.replace("ā", "a")
 		print_string = print_string.replace("ē", "e")
 		print_string = print_string.replace("ō", "o")
-		print_string = print_string.replace("tse", "%{t%}e") #part of the phonetics. {te} never appears. 
 		if re.search("FINAL-V", print_string) or re.search("VERB-", print_string): 
 			print_string = eao_end_multichar(print_string)
-		print(print_string)
+		if(print_string): print(print_string)
 			
 		
