@@ -115,6 +115,30 @@ Cx:ʼ <=> Vow: Vow: _ %{o%}: .#. ;
 	_ FinalMultichar:* .#. ;
 
 
+<<<<<<< HEAD
+!"devoicing of neutral vowels before voiceless fricatives, but not in second to last syllable."
+![a:ȧ | e:ė | o:ȯ ] <=> _ (%>:) VoicelessFric: ;
+!			except 
+!			_ Eng:* %{N%}: ;
+!			Vow: _ ;
+!			h: _ ; 
+!			_ VoicelessFric: Con:* (%>:) Vow: Con:* FinalMultichar:* .#. ; 
+!			_ VoicelessFric: %>: Vow: FinalMultichar:* .#. ; !hátseškeh>o{'}{o}
+!			_ Con: FinalMultichar:* .#. ;
+!			!Can't have three in a row. Middle stays as voiced.  
+!			\h: Vow: VoicelessFric: VoicelessFric:* _ VoicelessFric: VoicelessFric:* (%>:) Vow: VoicelessFric:* ;
+!"penultimate devoicing"
+![a:ȧ | e:ė | o:ȯ ] <=> _ (>: ) [t: | s: | š: | k: | x:] Con:*(>:) [%{e%}: | e: | é: ] FinalMultichar:* .#. ;
+!	except _ Eng:* %{N%}: ;
+
+
+!"prepenultimate devoicing"
+![a:ȧ | e:ė | o:ȯ ] <=> 
+
+
+
+
+=======
 "devoicing of neutral vowels before voiceless fricatives, but not in second to last syllable."
 [a:ȧ | e:ė | o:ȯ ] <=> _ (%>:) VoicelessFric: ;
 			except 
@@ -126,6 +150,7 @@ Cx:ʼ <=> Vow: Vow: _ %{o%}: .#. ;
 			_ Con: FinalMultichar:* .#. ;
 			!Canʼt have three in a row. Middle stays as voiced.  
 			\h: Vow: VoicelessFric: VoicelessFric:* _ VoicelessFric: VoicelessFric:* (%>:) Vow: VoicelessFric:* ;
+>>>>>>> 4f9cce7c13c8819775494f0cb6979624c9f5c0ad
 
 "if the final high tone vowel is neutralized and there is a single high tone followed by a neutral tone, that neutral tone will become high."
 [a:á | e:é | o:ó ] <=> HighVow _ Con: [Con: | Vow: ]* HighVow: Con:* FinalMultichar:* .#. ;
