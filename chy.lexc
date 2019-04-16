@@ -837,7 +837,6 @@ tove:%{v%}%{é%}tovan NI-PL-OT ; !body
 tame:%{v%}%{é%}tame NA-PL-O ;
 ʼtove:%{v%}%{é%}ʼtóve NA-PL-O ;
 séne:%{v%}%{é%}séne NA-PL-O ;
-<<<<<<< HEAD
 amȧho'hestȯtse:amaho'hestot%{s%}%{e%} NI-PL-OT ; !car
 !DUMP
 hóxȧhtsenáeseo'o:hóxȧhtsenáeseon%{o%} NI-PL-OT ;
@@ -8452,15 +8451,6 @@ aaa:aaa PAR ;
 aa:aa PAR ;
 ):) PAR ;
 ):) PAR ;
-):) PAR ;
-):) PAR ;
-=======
-amȧhoʼhestȯtse:amahoʼhestot%{s%}%{e%} NI-PL-OT ; !car
->>>>>>> 4f9cce7c13c8819775494f0cb6979624c9f5c0ad
-
-
-
-
 
 
 !VERB-IA VERB-IA VERB-IA VERB-IA VERB-IA VERB-IA VERB-IA VERB-IA VERB-IA VERB-IA 
@@ -8553,7 +8543,7 @@ LEXICON INT-NEG
 
 LEXICON II-Verbs
 !ȯ ȧ ė á é ó š 
-<<<<<<< HEAD
+
 hó'ta:hó'ta VII ;
 vehpeha:vehpehá VII ;
 xó'xonó:xó'xonó VII ;
@@ -10294,36 +10284,6 @@ aahkévȧhonetó:aahkévȧhonetó VII ;
 
 
 
-
-=======
-hóʼta:hóʼta VERB-II ;
-vehpeha:vehpehá VERB-II ;
-!VTI
-have:have V ;
-have:have V ;
-have:have V ;
-for:for V ;
-for:for V ;
-for:for V ;
-for:for V ;
-final:final V ;
-final:final V ;
-fai:fai V ;
-fai:fai V ;
-évéhpeʼhahe:évéhpeʼhahe V ;
-évéʼhoʼéveʼhahe:évéʼhoʼéveʼhahe V ;
-étseʼtseʼšeʼhahe:étseʼtseʼšeʼhahe V ;
-esp:esp V ;
-esp:esp V ;
-épėhévoʼeʼhahe:épėhévoʼeʼhahe V ;
-épėhéveʼhahe:épėhéveʼhahe V ;
-énooséenoto:énooséenoto V ;
-énonomóʼeʼhahe:énonomóʼeʼhahe V ;
-énonomepónenene:énonomepónenene V ;
-énonomeʼhahe:énonomeʼhahe V ;
-énétȧhéveʼhahe:énétȧhéveʼhahe V ;
-énanéahtovóho:énanéahtovóho V ;
->>>>>>> 4f9cce7c13c8819775494f0cb6979624c9f5c0ad
 
 
 !VERB-TI VERB-TI VERB-TI VERB-TI VERB-TI VERB-TI VERB-TI VERB-TI VERB-TI VERB-TI 
