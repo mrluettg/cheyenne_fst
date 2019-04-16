@@ -1,16 +1,16 @@
 Alphabet 
 
-a e h k l ' m n o p s š t v x ė ȯ ȧ á é ó b c d f g i j k l q r u w y z
+a e h k l ʼ m n o p s š t v x ė ȯ ȧ á é ó b c d f g i j k l q r u w y z
 
 %{n%}:n %{n%}:0 !odd possessive prefix
 %{v%}:v %{v%}:0 !odd possessive prefix
 %{é%}:é 	!odd possessive prefix
 %{ǒ%}:o %{ǒ%}:0 !obviatiative nouns 
 %{ě%}:e %{ě%}:0 !possessive suffux
-%{e%}:0 %{e%}:e !ke, pe, 'e, etc. 
-%{o%}:0 %{o%}:o %{o%}:e !for plural o'o
+%{e%}:0 %{e%}:e !ke, pe, ʼe, etc. 
+%{o%}:0 %{o%}:o %{o%}:e !for plural oʼo
 %{s%}:0 %{s%}:s !tse
-%{'%}:0 %{'%}:' !for plural o'o 
+%{ʼ%}:0 %{ʼ%}:ʼ !for plural oʼo 
 %{Ó%}:0 !for variation of IA obviatative. 
 %{E%}:e %{E%}:é !for variation of IA obviatative. 
 %{ē%}:e		!an e that NEVER changes
@@ -27,7 +27,7 @@ Sets
 
 Vow = a e o ȧ ė ȯ á é ó %{E%};
 
-Con = h k l ' m n p s š t v x ;
+Con = h k l ʼ m n p s š t v x ;
 
 HighVow = á é ó ; !this refers to tone. 
 
@@ -35,13 +35,13 @@ VoicelessFric = h s š x ; !deleted if no following vowel
 
 DeleteCon = h s š n ;
 
-AddECon = k l ' m p v ; !t technicially in here. but ends in e
+AddECon = k l ʼ m p v ; !t technicially in here. but ends in e
 
-FinalMultichar = %{e%} %{o%} %{s%} %{'%} ;
+FinalMultichar = %{e%} %{o%} %{s%} %{ʼ%} ;
 
 Eng = a b c d e f g h i j k l m n o p q r s t u v w x y z ;
 
-Chy = a e h k l ' m n o p s š t v x ė ȯ ȧ á é ó ;
+Chy = a e h k l ʼ m n o p s š t v x ė ȯ ȧ á é ó ;
 
 
 
@@ -57,26 +57,26 @@ Rules
 %{s%}:s <=> _ %{e%}: .#. ; 
 except _ Eng:* %{N%} ; 
 
-"Accomplish [':'e | m:me ] <=> _ .#. ;"
+"Accomplish [ʼ:ʼe | m:me ] <=> _ .#. ;"
 %{e%}:0 <=> _ %>: ; 
 
-"Accomplish xaon -> xao'o/// n"
-Cx:' <=> Vow: Vow: _ %{o%}: .#. ;
+"Accomplish xaon -> xaoʼo/// n"
+Cx:ʼ <=> Vow: Vow: _ %{o%}: .#. ;
 	where Cx in (h s š n) ; 
 
-"Accomplish xaon -> xao'o/// o"
+"Accomplish xaon -> xaoʼo/// o"
 %{o%}:Vx <=> Vow: Vy: DeleteCon: _ .#. ;
 	where Vx in (e o)
 		Vy in (e o)
 	matched ;
 
-"Accomplish xaon -> xao'o/// o but where o has an accent"
+"Accomplish xaon -> xaoʼo/// o but where o has an accent"
 %{o%}:Vx <=> Vow: Vy: DeleteCon: _ .#. ;
 	where Vx in (e o)
 		Vy in (é ó)
 	matched ;
 
-"Accomplish xaon -> xao'o/// o but where o has an accent"
+"Accomplish xaon -> xaoʼo/// o but where o has an accent"
 %{o%}:Vx <=> Vow: Vy: DeleteCon: _ .#. ;
 	where Vx in (e o)
 		Vy in (é ó)
@@ -84,11 +84,11 @@ Cx:' <=> Vow: Vow: _ %{o%}: .#. ;
 
 !@ v:v é: h:h a:a n:n a:a m:m {e}:0
 
-"Accomplish  nákȯhéo -> nákȯhéo'o /// o"
-%{o%}:o <=> Vow: %>: Vow: %{'%}: _ ;
-	%{ǒ%}: %>: Vow: %{'%}: _ ;
-"Accomplish  nákȯhéo -> nákȯhéo'o /// '"
-%{'%}:' <=> Vow: %>: Vow: _ ;
+"Accomplish  nákȯhéo -> nákȯhéoʼo /// o"
+%{o%}:o <=> Vow: %>: Vow: %{ʼ%}: _ ;
+	%{ǒ%}: %>: Vow: %{ʼ%}: _ ;
+"Accomplish  nákȯhéo -> nákȯhéoʼo /// ʼ"
+%{ʼ%}:ʼ <=> Vow: %>: Vow: _ ;
 	%{ǒ%}: %>: Vow: _ ;
 
 
@@ -107,7 +107,7 @@ Cx:' <=> Vow: Vow: _ %{o%}: .#. ;
 "neutralization of é and ó at end of word"
 [é:e | ó:o ] <=>  _ Con:* FinalMultichar:* .#. ;
 			_ Vow: Con: FinalMultichar:* .#. ;!meeʼe
-			_ (Con:) >: Vow: FinalMultichar:* ;!to prevent hexovóno ón>o{'}{o}
+			_ (Con:) >: Vow: FinalMultichar:* ;!to prevent hexovóno ón>o{ʼ}{o}
 			except Vow: _ FinalMultichar:* .#. ;
 				Vow: _ Con: FinalMultichar:* .#. ;
 "Neutralization for á"
@@ -122,9 +122,9 @@ Cx:' <=> Vow: Vow: _ %{o%}: .#. ;
 			Vow: _ ;
 			h: _ ; 
 			_ VoicelessFric: Con:* (%>:) Vow: Con:* FinalMultichar:* .#. ; 
-			_ VoicelessFric: %>: Vow: FinalMultichar:* .#. ; !hátseškeh>o{'}{o}
+			_ VoicelessFric: %>: Vow: FinalMultichar:* .#. ; !hátseškeh>o{ʼ}{o}
 			_ Con: FinalMultichar:* .#. ;
-			!Can't have three in a row. Middle stays as voiced.  
+			!Canʼt have three in a row. Middle stays as voiced.  
 			\h: Vow: VoicelessFric: VoicelessFric:* _ VoicelessFric: VoicelessFric:* (%>:) Vow: VoicelessFric:* ;
 
 "if the final high tone vowel is neutralized and there is a single high tone followed by a neutral tone, that neutral tone will become high."
