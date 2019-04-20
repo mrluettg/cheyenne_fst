@@ -1,1 +1,1 @@
-cat bible_final.txt  | hfst-proc chy.mor.hfstol  | sed 's/\$\W*\^/$\n^/g' | sort -f | uniq -c | sort -gr
+apertium-destxt | hfst-proc chy.mor.hfstol  | apertium-retxt| sed 's/\$\W*\^/$\n^/g' | sort -f | uniq -c | sort -gr
