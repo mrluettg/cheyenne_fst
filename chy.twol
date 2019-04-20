@@ -154,17 +154,6 @@ Cx:ʼ <=> Vow: Vow: _ %{o%}: .#. ;
 
 
 
-"Accomplish xaon -> xaoʼo/// o but where o has an accent"
-
-%{o%}:Vx <=> Vow: Vy: DeleteCon: _ .#. ;
-
-	where Vx in (e o)
-
-		Vy in (é ó)
-
-	matched ;
-
-
 
 !@ v:v é: h:h a:a n:n a:a m:m {e}:0
 
@@ -231,42 +220,24 @@ Cx:ʼ <=> Vow: Vow: _ %{o%}: .#. ;
 
 
 
-
+!NOTE: several attempts at vowel devoicing have been made, though all attempts
+!have shown to lower coverage. 
 !"devoicing of neutral vowels before voiceless fricatives, but not in second to last syllable."
-
 ![a:ȧ | e:ė | o:ȯ ] <=> _ (%>:) VoicelessFric: ;
-
 !			except 
-
 !			_ Eng:* %{N%}: ;
-
 !			Vow: _ ;
-
 !			h: _ ; 
-
 !			_ VoicelessFric: Con:* (%>:) Vow: Con:* FinalMultichar:* .#. ; 
-
 !			_ VoicelessFric: %>: Vow: FinalMultichar:* .#. ; !hátseškeh>o{ʼ}{o}
-
 !			_ Con: FinalMultichar:* .#. ;
-
 !			!Canʼt have three in a row. Middle stays as voiced.  
-
 !			\h: Vow: VoicelessFric: VoicelessFric:* _ VoicelessFric: VoicelessFric:* (%>:) Vow: VoicelessFric:* ;
-
+!
 !"penultimate devoicing"
-
 ![a:ȧ | e:ė | o:ȯ ] <=> _ (>: ) [t: | s: | š: | k: | x:] Con:*(>:) [%{e%}: | e: | é: ] FinalMultichar:* .#. ;
-
 !	except _ Eng:* %{N%}: ;
 
-
-
-
-
-!"prepenultimate devoicing"
-
-![a:ȧ | e:ė | o:ȯ ] <=> 
 
 
 
